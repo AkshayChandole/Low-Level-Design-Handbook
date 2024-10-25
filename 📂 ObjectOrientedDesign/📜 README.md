@@ -7,9 +7,9 @@ Here are the core concepts of OOD:
 
 ![image](https://github.com/user-attachments/assets/3d5fa6d4-fd4b-4278-a2e8-7d2ed0ea2e4f)
 
-# Core Principles of Object-Oriented Design
+# [Core Principles of Object-Oriented Design (OOD)](#core-principles-of-object-oriented-design-ood)
 
-## Encapsulation:
+## [Encapsulation](#encapsulation)
 Encapsulation is one of the fundamental principles of Object-Oriented Design (OOD) that refers to the bundling of data (attributes) and methods (functions) that operate on that data into a single unit, or object. This concept allows for data hiding and protects the internal state of the object from direct modification, thus promoting data integrity and abstraction.
 
 ### Key Aspects of Encapsulation -
@@ -85,16 +85,17 @@ Ease of Maintenance: Since the internal workings of a class are hidden, develope
 Abstraction: Encapsulation promotes abstraction by allowing the user to interact with an object without needing to understand its inner workings.
 
 
-## Abstraction:
+## [Abstraction](#abstraction)
 
 Simplifies complex reality by modeling classes based on the essential properties and behaviors of an object.
 Allows developers to focus on interactions at a high level without needing to understand all the implementation details.
 
-## Inheritance:
+## [Inheritance](#inheritance)
 
 Enables new classes to inherit properties and methods from existing classes, promoting code reuse and establishing a hierarchical relationship between classes.
 Supports polymorphism, where derived classes can override methods of their parent class.
-## Polymorphism:
+
+## [Polymorphism](#polymorphism)
 
 Allows objects of different classes to be treated as objects of a common superclass, enabling the same interface to be used for different underlying forms (data types).
 Includes method overriding (same method name in child class) and method overloading (same method name but different parameters).
