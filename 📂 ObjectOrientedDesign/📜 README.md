@@ -1,5 +1,5 @@
 
-# [Object Oriented Design (OOD)](object-oriented-design)
+# [Object Oriented Design (OOD)](#object-oriented-design-ood)
 
 Object-Oriented Design (OOD) is a programming paradigm centered around the concepts of "objects," which represent real-world entities and encapsulate data and behavior. OOD emphasizes creating modular, reusable, and maintainable code by organizing software into well-defined structures.
 
