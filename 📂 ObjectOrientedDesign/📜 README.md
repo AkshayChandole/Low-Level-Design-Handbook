@@ -84,37 +84,9 @@ In Java, abstraction can be achieved using:
 
 Here’s an example using an abstract class:
 
-```java
-// Abstract class Vehicle defines the concept of a vehicle without implementation details
-abstract class Vehicle {
-    abstract void accelerate();  // Abstract method (no implementation)
-    abstract void brake();       // Abstract method (no implementation)
-
-    void start() {
-        System.out.println("Vehicle started.");
-    }
-}
-
-// Concrete subclass Car provides specific implementations
-class Car extends Vehicle {
-    void accelerate() {
-        System.out.println("Car is accelerating.");
-    }
-
-    void brake() {
-        System.out.println("Car is braking.");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Vehicle myCar = new Car();
-        myCar.start();       // Calls the inherited method
-        myCar.accelerate();  // Calls the implemented method in Car
-        myCar.brake();       // Calls the implemented method in Car
-    }
-}
-```
+<div align="center">
+ <img src="./images/abstraction.png" width="80%">
+</div>
 
 #### 🔸 Explanation of the Example
 - The Vehicle class is abstract, meaning it cannot be instantiated and serves only as a blueprint.
