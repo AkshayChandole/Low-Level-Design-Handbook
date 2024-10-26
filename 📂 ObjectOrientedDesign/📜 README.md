@@ -4,7 +4,9 @@ Object-Oriented Design (OOD) is a programming paradigm centered around the conce
 
 Here are the core concepts of OOD:
 
-![](./images/ood.png)
+<p align="center">
+ <img src="./images/ood.png" >
+</p>
 
 # [Core Principles of Object-Oriented Design (OOD)](#core-principles-of-object-oriented-design-ood)
 
@@ -35,7 +37,9 @@ For example, a class can validate input values before setting them, ensuring tha
 
 Here’s a simple Java example to illustrate encapsulation:
 
-![](./images/encapsulation.png)
+<p align="center">
+ <img src="./images/encapsulation.png" >
+</p>
 
 #### Explanation of the Example -
 
