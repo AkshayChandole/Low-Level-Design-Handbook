@@ -4,11 +4,7 @@ Object-Oriented Design (OOD) is a programming paradigm centered around the conce
 
 Here are the core concepts of OOD:
 
-<p align="center">
- <img src="./images/ood.png" >
-</p>
-
-![image](https://github.com/user-attachments/assets/3d5fa6d4-fd4b-4278-a2e8-7d2ed0ea2e4f)
+![](./images/ood.png)
 
 # [Core Principles of Object-Oriented Design (OOD)](#core-principles-of-object-oriented-design-ood)
 
@@ -39,48 +35,7 @@ For example, a class can validate input values before setting them, ensuring tha
 
 Here’s a simple Java example to illustrate encapsulation:
 
-<p align="center">
- <img src="./images/encapsulation.png" >
-</p>
-
-```java
-public class BankAccount {
-    // Private attributes
-    private String accountNumber;
-    private double balance;
-
-    // Constructor
-    public BankAccount(String accountNumber, double initialBalance) {
-        this.accountNumber = accountNumber;
-        this.balance = initialBalance;
-    }
-
-    // Public method to deposit money
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("Deposited: " + amount);
-        } else {
-            System.out.println("Deposit amount must be positive.");
-        }
-    }
-
-    // Public method to withdraw money
-    public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println("Withdrew: " + amount);
-        } else {
-            System.out.println("Invalid withdrawal amount.");
-        }
-    }
-
-    // Public method to check balance
-    public double getBalance() {
-        return balance;
-    }
-}
-```
+![](./images/encapsulation.png)
 
 #### Explanation of the Example -
 
