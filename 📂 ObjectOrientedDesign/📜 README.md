@@ -35,9 +35,7 @@ For example, a class can validate input values before setting them, ensuring tha
 
 Here’s a simple Java example to illustrate encapsulation:
 
-\<p align="center">  
- \<img src="images/encapsulation.png" >  
-\</p>
+![](./images/encapsulation.png)
 
 ```java
 public class BankAccount {
