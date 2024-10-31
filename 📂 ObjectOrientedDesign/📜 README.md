@@ -154,7 +154,9 @@ This organization allows the application to treat all vehicles in a similar way 
 ## *️⃣ [Polymorphism](#polymorphism)
 
 In Object-Oriented Design, polymorphism is a core concept that allows objects to be treated as instances of their parent class while enabling the execution of different methods based on the actual class of the object. 
+
 This ability to "take many forms" enables more flexible and reusable code. 
+
 Polymorphism generally manifests in two ways in Java: compile-time (method overloading) and runtime (method overriding) polymorphism.
 
 ### 💠 Types of Polymorphism in Java
@@ -174,15 +176,15 @@ In this example, we'll demonstrate both method overloading and method overriding
 </div>
 
 #### 🔸Explanation
-**Method Overloading:**
+1. Method Overloading -
 The makeSound(int times) method in the Dog class is an overloaded version of makeSound() that takes an integer argument. It allows calling makeSound in multiple ways.
-**Method Overriding:**
+2. Method Overriding -
 The makeSound method in both Dog and Cat classes overrides the makeSound method from the Animal class. At runtime, Java chooses the method of the actual object type (Dog or Cat), demonstrating runtime polymorphism.
 
 ### 💠 Advantages of Polymorphism
-Code Flexibility: You can write more generic code, focusing on high-level operations rather than specific types.
-Extensibility: You can easily introduce new classes and override methods without changing existing code, enhancing maintainability.
-Reusability: Methods written in the parent class can be used by derived classes, reducing redundancy.
-Polymorphism allows an interface or a superclass to be expanded while keeping the code clean, readable, and extendable. It’s a fundamental part of achieving scalable and adaptable designs in object-oriented programming.
+1. Code Flexibility - You can write more generic code, focusing on high-level operations rather than specific types.
+2. Extensibility - You can easily introduce new classes and override methods without changing existing code, enhancing maintainability.
+3. Reusability - Methods written in the parent class can be used by derived classes, reducing redundancy.
+4. Polymorphism allows an interface or a superclass to be expanded while keeping the code clean, readable, and extendable. It’s a fundamental part of achieving scalable and adaptable designs in object-oriented programming.
 
 <hr>
