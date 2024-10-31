@@ -4,11 +4,11 @@ Low Level Design Interview Handbook
 
 [Object-Oriented Design (OOD)](📂%20ObjectOrientedDesign/📜%20README.md)
 
-- Core Principles of OOD
-- Encapsulation
-- Abstraction
-- Inheritance
-- Polymorphism
+- [Core Principles of OOD](📂%20ObjectOrientedDesign/📜%20README.md#core-principles-of-object-oriented-design-ood)
+- [Encapsulation](📂%20ObjectOrientedDesign/📜%20README.md#encapsulation)
+- [Abstraction](📂%20ObjectOrientedDesign/📜%20README.md#abstraction)
+- [Inheritance](📂%20ObjectOrientedDesign/📜%20README.md#inheritance)
+- [Polymorphism](📂%20ObjectOrientedDesign/📜%20README.md#polymorphism)
 - SOLID Principles
   - Single Responsibility Principle (SRP)
   - Open/Closed Principle (OCP)
