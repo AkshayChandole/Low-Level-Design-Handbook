@@ -149,7 +149,40 @@ Vehicle is a superclass with properties like speed and methods like accelerate()
 Car and Bicycle are subclasses of Vehicle with specific implementations for accelerate() and other methods.
 This organization allows the application to treat all vehicles in a similar way while letting each vehicle type behave in its own unique way.
 
+<hr>
+
 ## *️⃣ [Polymorphism](#polymorphism)
 
-Allows objects of different classes to be treated as objects of a common superclass, enabling the same interface to be used for different underlying forms (data types).  
-Includes method overriding (same method name in child class) and method overloading (same method name but different parameters).
+In Object-Oriented Design, polymorphism is a core concept that allows objects to be treated as instances of their parent class while enabling the execution of different methods based on the actual class of the object. 
+This ability to "take many forms" enables more flexible and reusable code. 
+Polymorphism generally manifests in two ways in Java: compile-time (method overloading) and runtime (method overriding) polymorphism.
+
+### 💠 Types of Polymorphism in Java
+#### 🔸Compile-time Polymorphism (Method Overloading):
+Method overloading is when multiple methods have the same name but differ in parameters (type or number).
+It allows different ways to perform an action within the same class, based on the input parameters.
+
+#### 🔸Runtime Polymorphism (Method Overriding):
+Method overriding is when a subclass provides a specific implementation for a method that is already defined in its superclass.
+Java uses the actual object’s method at runtime rather than the superclass's, supporting dynamic method dispatch.
+
+### 💠 Example of Polymorphism in Java
+In this example, we'll demonstrate both method overloading and method overriding to illustrate polymorphism.
+
+<div align="center">
+ <img src="./images/polymorphism.png" width="80%">
+</div>
+
+#### 🔸Explanation
+**Method Overloading:**
+The makeSound(int times) method in the Dog class is an overloaded version of makeSound() that takes an integer argument. It allows calling makeSound in multiple ways.
+**Method Overriding:**
+The makeSound method in both Dog and Cat classes overrides the makeSound method from the Animal class. At runtime, Java chooses the method of the actual object type (Dog or Cat), demonstrating runtime polymorphism.
+
+### 💠 Advantages of Polymorphism
+Code Flexibility: You can write more generic code, focusing on high-level operations rather than specific types.
+Extensibility: You can easily introduce new classes and override methods without changing existing code, enhancing maintainability.
+Reusability: Methods written in the parent class can be used by derived classes, reducing redundancy.
+Polymorphism allows an interface or a superclass to be expanded while keeping the code clean, readable, and extendable. It’s a fundamental part of achieving scalable and adaptable designs in object-oriented programming.
+
+<hr>
