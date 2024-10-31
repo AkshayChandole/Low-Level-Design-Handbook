@@ -105,8 +105,49 @@ Abstraction, therefore, is essential for creating modular, maintainable, and use
 
 ## *️⃣ [Inheritance](#inheritance)
 
-Enables new classes to inherit properties and methods from existing classes, promoting code reuse and establishing a hierarchical relationship between classes.  
-Supports polymorphism, where derived classes can override methods of their parent class.
+Inheritance is one of the core principles of Object-Oriented Programming (OOP). 
+It allows a new class (called a subclass or derived class) to inherit properties and behaviors (fields and methods) from an existing class (called a superclass or base class). 
+Inheritance enables code reusability, making it possible to build upon existing code without duplicating it.
+
+### 💠 Key Concepts in Inheritance
+#### 🔸 Superclasses and Subclasses:
+The superclass is the parent class that provides attributes and methods to the subclass.
+The subclass is the child class that inherits from the superclass and can add its own unique attributes and methods.
+#### 🔸 Single Inheritance:
+In most languages, a subclass can inherit from only one superclass. This is known as single inheritance.
+#### 🔸 Multiple Inheritance:
+Some languages support multiple inheritance, where a class can inherit from more than one superclass. This can lead to complexity, so some languages, like Java, avoid it and instead use interfaces to achieve similar behavior.
+#### 🔸 Method Overriding:
+Subclasses can override methods from the superclass to provide a specific implementation. This allows subclasses to behave differently even when they have the same method as the superclass.
+#### 🔸 Super Keyword:
+In many languages, the super keyword is used within a subclass to refer to the superclass, allowing access to superclass methods and constructors.
+
+### 💠 Benefits of Inheritance
+#### 🔸 Code Reusability: 
+Subclasses inherit fields and methods from the superclass, reducing the need for redundant code.
+#### 🔸 Method Overriding for Flexibility: 
+Subclasses can override inherited methods to implement behavior specific to the subclass.
+#### 🔸 Hierarchical Class Structure: 
+Inheritance allows for a well-organized class structure, making code easier to understand and maintain.
+
+### 💠 Example of Inheritance in Java
+Let’s look at a simple example involving an Animal superclass and a Dog subclass.
+
+<div align="center">
+ <img src="./images/inheritance.png" width="80%">
+</div>
+
+In this example:
+Dog inherits the name attribute and sound() method from Animal.
+Dog overrides the sound() method to provide a dog-specific sound.
+The super keyword in the Dog constructor is used to call the superclass (Animal) constructor.
+
+### 💠 Real-World Example
+Consider an application with classes like Vehicle, Car, and Bicycle.
+
+Vehicle is a superclass with properties like speed and methods like accelerate().
+Car and Bicycle are subclasses of Vehicle with specific implementations for accelerate() and other methods.
+This organization allows the application to treat all vehicles in a similar way while letting each vehicle type behave in its own unique way.
 
 ## *️⃣ [Polymorphism](#polymorphism)
 
