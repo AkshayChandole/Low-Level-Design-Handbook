@@ -10,7 +10,7 @@ Here are the core concepts of OOD:
 
 # [Core Principles of Object-Oriented Design (OOD)](#core-principles-of-object-oriented-design-ood)
 
-## *️⃣ [Encapsulation](#encapsulation)
+## [Encapsulation](#encapsulation)
 
 Encapsulation is one of the fundamental principles of Object-Oriented Design (OOD) that refers to the bundling of data (attributes) and methods (functions) that operate on that data into a single unit, or object. This concept allows for data hiding and protects the internal state of the object from direct modification, thus promoting data integrity and abstraction.
 
@@ -61,7 +61,7 @@ The getBalance method allows outside code to retrieve the current balance withou
 
 <hr>
 
-## *️⃣ [Abstraction](#abstraction)
+## [Abstraction](#abstraction)
 
 Abstraction is a fundamental concept in object-oriented programming (OOP) that focuses on hiding complex implementation details from the user and exposing only the essential features or functionalities. This approach allows developers to work with higher-level concepts without needing to understand the intricate details of their implementation.
 
@@ -103,7 +103,7 @@ Abstraction, therefore, is essential for creating modular, maintainable, and use
 
 <hr>
 
-## *️⃣ [Inheritance](#inheritance)
+## [Inheritance](#inheritance)
 
 Inheritance is one of the core principles of Object-Oriented Programming (OOP). 
 It allows a new class (called a subclass or derived class) to inherit properties and behaviors (fields and methods) from an existing class (called a superclass or base class). 
@@ -151,7 +151,7 @@ This organization allows the application to treat all vehicles in a similar way 
 
 <hr>
 
-## *️⃣ [Polymorphism](#polymorphism)
+## [Polymorphism](#polymorphism)
 
 In Object-Oriented Design, polymorphism is a core concept that allows objects to be treated as instances of their parent class while enabling the execution of different methods based on the actual class of the object. 
 
