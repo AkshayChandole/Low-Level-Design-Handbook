@@ -32,7 +32,7 @@ Without OCP, you might have a `NotificationService` class with a single `sendNot
 
 In this design, adding a new notification type requires modifying `NotificationService`, breaking the OCP.
 
-#### Refactoring with OCP
+#### [Refactoring with OCP](#refactoring-with-ocp)
 Instead, we can create an interface `Notification` and then define different classes for each type of notification. This way, `NotificationService` is **closed for modification** but **open for extension** when adding new notification types.
 
 <p align="center" >
