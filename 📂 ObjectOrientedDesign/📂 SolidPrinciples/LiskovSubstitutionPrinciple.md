@@ -28,20 +28,9 @@ To adhere to LSP:
 
 Let’s consider a base class `Bird` and a derived class `Penguin`:
 
-```java
-public class Bird {
-    public void fly() {
-        System.out.println("This bird is flying.");
-    }
-}
-
-public class Penguin extends Bird {
-    @Override
-    public void fly() {
-        throw new UnsupportedOperationException("Penguins cannot fly.");
-    }
-}
-```
+<p align="center" >
+ <img src="./images/without-lsp.png" width="60%" >
+</p>
 
 Here, substituting a `Bird` object with a `Penguin` object breaks LSP because `Penguin` doesn’t truly fulfill the contract of `Bird`. Any code relying on `Bird`’s `fly()` method will throw an exception if a `Penguin` is passed, causing unexpected behavior.
 
@@ -49,36 +38,9 @@ Here, substituting a `Bird` object with a `Penguin` object breaks LSP because `P
 
 A better approach is to redesign the class hierarchy by segregating behaviors:
 
-```java
-// Base class
-public abstract class Bird {
-    public abstract void move();
-}
-
-// FlyingBird inherits Bird and can fly
-public class FlyingBird extends Bird {
-    @Override
-    public void move() {
-        fly();
-    }
-
-    public void fly() {
-        System.out.println("This bird is flying.");
-    }
-}
-
-// Penguin now implements move() appropriately
-public class Penguin extends Bird {
-    @Override
-    public void move() {
-        walk();
-    }
-
-    public void walk() {
-        System.out.println("The penguin is walking.");
-    }
-}
-```
+<p align="center" >
+ <img src="./images/with-lsp.png" width="60%" >
+</p>
 
 In this refactored design:
 - `Bird` represents the general concept of a bird.
@@ -86,9 +48,13 @@ In this refactored design:
 
 Now, we can substitute any `Bird` instance with either a `FlyingBird` or `Penguin`, ensuring that the code adheres to LSP.
 
-### Benefits of Following LSP
+### [Benefits of Following LSP](#benefits-of-following-lsp)
 1. **Consistent Behavior**: Derived classes respect the expected behavior of their base class.
 2. **Reusable Code**: Base classes and methods can work with any derived class, promoting code reuse.
 3. **Easier Testing and Maintenance**: LSP-compliant designs ensure that substituting objects of subclasses won’t introduce unexpected issues, simplifying testing and maintenance. 
 
 By following the Liskov Substitution Principle, we create designs that are flexible, reliable, and easier to work with, especially in larger systems where polymorphism is extensively used.
+
+<hr>
+
+
