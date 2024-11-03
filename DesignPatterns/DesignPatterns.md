@@ -15,6 +15,12 @@ Design patterns streamline the development process by providing a proven templat
 Design patterns are typically categorized into three main types:
 
 1. **[Creational Patterns:](CreationalPatterns/CreationalPatterns.md)** These deal with object creation mechanisms and aim to abstract or hide the instantiation process, making it easier to decouple code and provide greater flexibility in what gets created, how, and when.
+Examples of creational patterns are -
+      * [Singleton Pattern](CreationalPatterns/SingletonPattern.md)
+      * [Factory Method Pattern](CreationalPatterns/FactoryMethodPattern.md)
+      * [Abstract Factory Pattern](CreationalPatterns/AbstractFactoryPattern.md)
+      * [Builder Pattern](CreationalPatterns/BuilderPattern.md)
+      * [Prototype Pattern](CreationalPatterns/PrototypePattern.md)
 
 2. **[Structural Patterns:](StructuralPatterns/StructuralPatterns.md)** These focus on class and object composition, defining relationships between entities to make them work together as a larger, flexible structure. They help organize classes and objects into more comprehensive and effective structures.
 
