@@ -27,7 +27,7 @@ By inverting dependencies, DIP encourages high-level modules to rely on abstract
 Imagine a scenario where a `PaymentProcessor` class depends directly on a `CreditCardPaymentService` for processing payments:
 
 <p align="center" >
- <img src="./images/without-dip.png" width="60%" >
+ <img src="./images/without-dip.png" width="75%" >
 </p>
 
 In this example:
@@ -39,7 +39,7 @@ In this example:
 To comply with DIP, introduce an abstraction (interface) that represents the payment service:
 
 <p align="center" >
- <img src="./images/with-dip.png" width="60%" >
+ <img src="./images/with-dip.png" width="75%" >
 </p>
 
 Now, `PaymentProcessor` depends on the `PaymentService` abstraction rather than a specific implementation (`CreditCardPaymentService`). This refactoring allows flexibility to change the `PaymentService` implementation without modifying `PaymentProcessor`.
