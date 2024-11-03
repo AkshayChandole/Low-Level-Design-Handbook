@@ -23,7 +23,7 @@ Following the **SOLID** principles leads to a well-structured, modular, and test
 1. [Single Responsibility Principle](SingleResponsibilityPrinciple.md#single-reponsibility-principle-srp)
 2. [Open/Closed Principle](OpenClosedPrinciple.md#open-closed-principle-ocp)
 3. [Liskov Substitution Principle](LiskovSubstitutionPrinciple.md#liskov-substitution-principle-lsp)
-4. [Interface Segregation Principle]()
+4. [Interface Segregation Principle](InterfaceSegregationPrinciple.md#interface-segregation-principle)
 5. [Dependency Inversion Principle]()
 
 <hr>
