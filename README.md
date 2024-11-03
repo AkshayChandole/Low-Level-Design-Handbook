@@ -18,7 +18,7 @@ Low Level Design Interview Handbook
 
 <hr>
 
-## [Design Patterns](DesignPatterns/DesignPatterns.md#design-patterns)
+## ❄️ [Design Patterns](DesignPatterns/DesignPatterns.md#design-patterns)
 - Creational Patterns:
   - Singleton Pattern
   - Factory Method Pattern
