@@ -2,9 +2,7 @@
 
 Low Level Design Interview Handbook
 
-[Object-Oriented Design (OOD)](https://github.com/AkshayChandole/Low-Level-Design-Handbook/blob/main/%F0%9F%93%82%20ObjectOrientedDesign/%F0%9F%93%9C%20README.md#object-oriented-design-ood)
-
-(📂%20ObjectOrientedDesign/📜%20README.md#object-oriented-design-ood)
+[Object-Oriented Design (OOD)](📂%20ObjectOrientedDesign/📜%20README.md#object-oriented-design-ood)
 
 - [Core Principles of OOD](📂%20ObjectOrientedDesign/📜%20README.md#core-principles-of-object-oriented-design-ood)
 - [Encapsulation](📂%20ObjectOrientedDesign/📜%20README.md#encapsulation)
