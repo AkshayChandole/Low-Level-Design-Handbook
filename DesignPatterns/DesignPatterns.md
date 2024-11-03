@@ -14,10 +14,10 @@ Design patterns streamline the development process by providing a proven templat
 
 Design patterns are typically categorized into three main types:
 
-**Creational Patterns:** These deal with object creation mechanisms and aim to abstract or hide the instantiation process, making it easier to decouple code and provide greater flexibility in what gets created, how, and when.
+1. **[Creational Patterns:](CreationalPatterns/CreationalPatterns.md)** These deal with object creation mechanisms and aim to abstract or hide the instantiation process, making it easier to decouple code and provide greater flexibility in what gets created, how, and when.
 
-**Structural Patterns:** These focus on class and object composition, defining relationships between entities to make them work together as a larger, flexible structure. They help organize classes and objects into more comprehensive and effective structures.
+2. **[Structural Patterns:](StructuralPatterns/StructuralPatterns.md)** These focus on class and object composition, defining relationships between entities to make them work together as a larger, flexible structure. They help organize classes and objects into more comprehensive and effective structures.
 
-**Behavioral Patterns:** These deal with object interaction, communication, and responsibilities. Behavioral patterns help define the way objects collaborate and delegate responsibility, facilitating better management of complex flows and enabling greater flexibility.
+3. **[Behavioral Patterns:](BehavioralPatterns/BehavioralPatterns.md)** These deal with object interaction, communication, and responsibilities. Behavioral patterns help define the way objects collaborate and delegate responsibility, facilitating better management of complex flows and enabling greater flexibility.
 
 Using these patterns can lead to more organized, efficient, and modular code, which is easier to test and maintain.
