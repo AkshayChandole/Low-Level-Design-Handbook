@@ -51,12 +51,13 @@ Now, `PaymentProcessor` depends on the `PaymentService` abstraction rather than 
 3. **Ease of Maintenance**: Changes in low-level modules do not directly affect high-level modules.
 4. **Improved Testability**: With dependency injection and abstractions, it’s easier to mock dependencies, facilitating effective unit testing.
 
-<hr>
 
-
-
-### Dependency Injection
+### [Dependency Injection](#dependency-injection)
 
 **Dependency Injection** is a common method of implementing DIP by passing dependencies (like `PaymentService`) into classes rather than creating them internally. It allows you to inject different implementations at runtime, further enhancing flexibility.
 
 By following the Dependency Inversion Principle, your codebase becomes more adaptable to change, modular, and test-friendly. The high-level logic remains intact and isolated from low-level implementation details, leading to a more stable and scalable system.
+
+<hr>
+
+
