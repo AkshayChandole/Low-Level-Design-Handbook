@@ -3,6 +3,10 @@ The **SOLID Principles** are a set of five core guidelines in object-oriented de
 
 These principles were introduced by Robert C. Martin (also known as Uncle Bob) and are widely used by developers to ensure code quality and reduce the chances of technical debt. 
 
+<p align="center" >
+ <img src="./images/solid-principles.jpg" width="90%" >
+</p>
+
 Here’s a brief overview of each principle:
 
 - **S** - **Single Responsibility Principle (SRP)**: A class should have only one reason to change, meaning it should have only one job or responsibility.
