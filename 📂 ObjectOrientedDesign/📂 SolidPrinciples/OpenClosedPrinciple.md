@@ -59,3 +59,6 @@ If you want to add a new notification type, such as **SlackNotification**, you s
 3. **Loose Coupling**: The `NotificationService` class depends on the interface `Notification`, not on concrete implementations. This improves flexibility and makes the code easier to test and maintain. 
 
 By following the Open/Closed Principle, you can make your code more adaptable to changing requirements and ensure it’s future-proof.
+
+<hr>
+
