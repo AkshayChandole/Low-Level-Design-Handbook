@@ -26,25 +26,9 @@ By inverting dependencies, DIP encourages high-level modules to rely on abstract
 
 Imagine a scenario where a `PaymentProcessor` class depends directly on a `CreditCardPaymentService` for processing payments:
 
-```java
-public class CreditCardPaymentService {
-    public void processPayment(double amount) {
-        System.out.println("Processing credit card payment of $" + amount);
-    }
-}
-
-public class PaymentProcessor {
-    private CreditCardPaymentService paymentService;
-
-    public PaymentProcessor() {
-        paymentService = new CreditCardPaymentService(); // High-level module depends on low-level module
-    }
-
-    public void makePayment(double amount) {
-        paymentService.processPayment(amount);
-    }
-}
-```
+<p align="center" >
+ <img src="./images/without-dip.png" width="60%" >
+</p>
 
 In this example:
 - The `PaymentProcessor` is tightly coupled to `CreditCardPaymentService`.
@@ -54,33 +38,9 @@ In this example:
 
 To comply with DIP, introduce an abstraction (interface) that represents the payment service:
 
-```java
-// Abstraction
-public interface PaymentService {
-    void processPayment(double amount);
-}
-
-// Low-level module implementation
-public class CreditCardPaymentService implements PaymentService {
-    @Override
-    public void processPayment(double amount) {
-        System.out.println("Processing credit card payment of $" + amount);
-    }
-}
-
-// High-level module depending on abstraction
-public class PaymentProcessor {
-    private PaymentService paymentService;
-
-    public PaymentProcessor(PaymentService paymentService) { // Dependency Injection
-        this.paymentService = paymentService;
-    }
-
-    public void makePayment(double amount) {
-        paymentService.processPayment(amount);
-    }
-}
-```
+<p align="center" >
+ <img src="./images/with-dip.png" width="60%" >
+</p>
 
 Now, `PaymentProcessor` depends on the `PaymentService` abstraction rather than a specific implementation (`CreditCardPaymentService`). This refactoring allows flexibility to change the `PaymentService` implementation without modifying `PaymentProcessor`.
 
