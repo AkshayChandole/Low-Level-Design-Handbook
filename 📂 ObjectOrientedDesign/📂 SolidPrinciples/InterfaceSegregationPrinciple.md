@@ -21,7 +21,7 @@ This principle is all about avoiding **fat interfaces** — interfaces that defi
 Consider an interface `Worker` with methods that aren’t applicable to all types of workers:
 
 <p align="center" >
- <img src="./images/without-isp1.png" width="60%" >
+ <img src="./images/without-isp1.png" width="40%" >
 </p>
 
 If we have both `Engineer` and `Manager` classes implementing `Worker`, `Engineer` would still need to implement `manage()` and `supervise()` even though it doesn’t use them:
@@ -37,7 +37,7 @@ This design is rigid and violates ISP because the `Engineer` class is forced to 
 To follow ISP, we can break the `Worker` interface into smaller, more specific interfaces:
 
 <p align="center" >
- <img src="./images/with-isp1.png" width="60%" >
+ <img src="./images/with-isp1.png" width="40%" >
 </p>
 
 Now, `Engineer` and `Manager` can implement only the interfaces relevant to them:
