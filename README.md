@@ -14,7 +14,7 @@ Low Level Design Interview Handbook
   - [Open/Closed Principle (OCP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/OpenClosedPrinciple.md#open-closed-principle-ocp)
   - [Liskov Substitution Principle (LSP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/LiskovSubstitutionPrinciple.md#liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/InterfaceSegregationPrinciple.md#interface-segregation-principle)
-  - Dependency Inversion Principle (DIP)
+  - [Dependency Inversion Principle (DIP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/DependencyInversionPrinciple.md#dependency-inversion-principle-dip)
 
 Design Patterns
 
