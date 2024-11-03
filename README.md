@@ -11,7 +11,7 @@ Low Level Design Interview Handbook
 - [Polymorphism](📂%20ObjectOrientedDesign/📜%20README.md#polymorphism)
 - [SOLID Principles](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/SolidPrinciples.md#solid-principles)
   - [Single Responsibility Principle (SRP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/SingleResponsibilityPrinciple.md#single-reponsibility-principle-srp)
-  - Open/Closed Principle (OCP)
+  - [Open/Closed Principle (OCP)](#📂%20ObjectOrientedDesign/📂%20SolidPrinciples/OpenClosedPrinciple.md#open-closed-principle-ocp)
   - Liskov Substitution Principle (LSP)
   - Interface Segregation Principle (ISP)
   - Dependency Inversion Principle (DIP)
