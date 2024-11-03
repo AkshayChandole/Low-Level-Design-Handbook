@@ -20,7 +20,7 @@ Here’s a brief overview of each principle:
 - **D** - **Dependency Inversion Principle (DIP)**: High-level modules should not depend on low-level modules. Both should depend on abstractions, reducing tight coupling and enhancing code flexibility. 
 
 Following the **SOLID** principles leads to a well-structured, modular, and testable codebase that’s easier to adapt to changes and extend over time.
-1. [Single Responsibility Principle]()
+1. [Single Responsibility Principle](SingleResponsibilityPrinciple.md#single-reponsibility-principle-srp)
 2. [Open/Closed Principle]()
 3. [Liskov Substitution Principle]()
 4. [Interface Segregation Principle]()
