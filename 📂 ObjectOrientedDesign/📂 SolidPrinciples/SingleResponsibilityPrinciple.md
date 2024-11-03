@@ -22,32 +22,10 @@ Without SRP, a `Book` class might handle all aspects of book management, such as
 
 #### Without SRP:
 
-```java
-class Book {
-    private String title;
-    private String author;
+<p align="center" >
+ <img src="./images/without-srp.png" width="80%" >
+</p>
 
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
-    // Gets book details as a formatted string
-    public String getBookDetails() {
-        return title + " by " + author;
-    }
-
-    // Violates SRP: Handling persistence
-    public void saveBook() {
-        System.out.println("Saving book to database...");
-    }
-
-    // Violates SRP: Handling printing logic
-    public void printBookDetails() {
-        System.out.println(getBookDetails());
-    }
-}
-```
 
 Here, the `Book` class violates SRP because it’s responsible for:
 - Storing book details
@@ -60,35 +38,9 @@ This makes the class more complex, tightly coupled, and harder to maintain.
 
 By applying SRP, we can split these responsibilities into separate classes:
 
-```java
-class Book {
-    private String title;
-    private String author;
-
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
-    public String getBookDetails() {
-        return title + " by " + author;
-    }
-}
-
-// Handles persistence
-class BookRepository {
-    public void save(Book book) {
-        System.out.println("Saving book to database...");
-    }
-}
-
-// Handles printing
-class BookPrinter {
-    public void print(Book book) {
-        System.out.println(book.getBookDetails());
-    }
-}
-```
+<p align="center" >
+ <img src="./images/with-srp.png" width="80%" >
+</p>
 
 Here:
 - The `Book` class is responsible only for storing book data.
