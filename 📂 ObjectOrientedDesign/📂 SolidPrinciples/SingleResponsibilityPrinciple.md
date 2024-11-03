@@ -9,13 +9,13 @@ The **Single Responsibility Principle (SRP)** is one of the five **SOLID princip
 
 In other words, **a class should be responsible for only one part of a program's functionality**. This principle encourages a separation of concerns, making each class focused, easier to understand, and more maintainable.
 
-### Key Benefits of SRP:
+### [Key Benefits of SRP](#key-benefits-of-srp):
 1. **Improved Readability**: Classes with a single responsibility are easier to read and understand since they handle only one functionality.
 2. **Easier Maintenance**: Changes in one part of the application require modifications in only one class, reducing the risk of introducing bugs.
 3. **Enhanced Testability**: With fewer functions, single-responsibility classes are simpler to test.
 4. **Reduced Coupling**: The principle promotes low coupling by keeping concerns separated.
 
-### Example of SRP in Java
+### [Example of SRP in Java](#example-of-srp-in-java)
 
 Suppose we’re building a system for managing a book. 
 
