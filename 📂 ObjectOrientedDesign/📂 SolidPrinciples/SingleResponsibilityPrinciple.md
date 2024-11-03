@@ -1,7 +1,7 @@
 # [Single Responsibility Principle (SRP)](#single-reponsibility-principle-srp)
 
 <p align="center" >
- <img src="./images/srp.png" width="60%" >
+ <img src="./images/srp.png" width="40%" >
 </p>
 
 The **Single Responsibility Principle (SRP)** is one of the five **SOLID principles** in object-oriented design, emphasizing that a class or module should have only one reason to change.
