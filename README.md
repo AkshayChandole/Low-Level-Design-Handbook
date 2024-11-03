@@ -10,7 +10,7 @@ Low Level Design Interview Handbook
 - [Inheritance](📂%20ObjectOrientedDesign/📜%20README.md#inheritance)
 - [Polymorphism](📂%20ObjectOrientedDesign/📜%20README.md#polymorphism)
 - [SOLID Principles](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/SolidPrinciples.md#solid-principles)
-  - Single Responsibility Principle (SRP)
+  - [Single Responsibility Principle (SRP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/SingleResponsibilityPrinciple.md#single-reponsibility-principle-srp)
   - Open/Closed Principle (OCP)
   - Liskov Substitution Principle (LSP)
   - Interface Segregation Principle (ISP)
