@@ -10,6 +10,8 @@ They are templates or best practices that developers can follow when solving sim
 
 Design patterns streamline the development process by providing a proven template for solving a problem in a particular context, which can help ensure code is more readable, maintainable, and scalable.
 
+## [Classification of Design Patterns](#classification-of-design-patterns)
+
 Design patterns are typically categorized into three main types:
 
 **Creational Patterns:** These deal with object creation mechanisms and aim to abstract or hide the instantiation process, making it easier to decouple code and provide greater flexibility in what gets created, how, and when.
