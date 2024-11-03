@@ -29,7 +29,7 @@ To adhere to LSP:
 Let’s consider a base class `Bird` and a derived class `Penguin`:
 
 <p align="center" >
- <img src="./images/without-lsp.p1ng" width="60%" >
+ <img src="./images/without-lsp.png" width="60%" >
 </p>
 
 Here, substituting a `Bird` object with a `Penguin` object breaks LSP because `Penguin` doesn’t truly fulfill the contract of `Bird`. Any code relying on `Bird`’s `fly()` method will throw an exception if a `Penguin` is passed, causing unexpected behavior.
