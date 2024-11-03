@@ -16,6 +16,8 @@ Low Level Design Interview Handbook
   - [Interface Segregation Principle (ISP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/InterfaceSegregationPrinciple.md#interface-segregation-principle)
   - [Dependency Inversion Principle (DIP)](📂%20ObjectOrientedDesign/📂%20SolidPrinciples/DependencyInversionPrinciple.md#dependency-inversion-principle-dip)
 
+<hr>
+
 ## [Design Patterns](DesignPatterns/DesignPatterns.md#design-patterns)
 - Creational Patterns:
   - Singleton Pattern
