@@ -20,34 +20,15 @@ This principle is all about avoiding **fat interfaces** — interfaces that defi
 
 Consider an interface `Worker` with methods that aren’t applicable to all types of workers:
 
-```java
-public interface Worker {
-    void work();
-    void manage();
-    void supervise();
-}
-```
+<p align="center" >
+ <img src="./images/without-isp1.png" width="60%" >
+</p>
 
 If we have both `Engineer` and `Manager` classes implementing `Worker`, `Engineer` would still need to implement `manage()` and `supervise()` even though it doesn’t use them:
 
-```java
-public class Engineer implements Worker {
-    @Override
-    public void work() {
-        System.out.println("Engineer is working.");
-    }
-
-    @Override
-    public void manage() {
-        // Not applicable, but must be implemented
-    }
-
-    @Override
-    public void supervise() {
-        // Not applicable, but must be implemented
-    }
-}
-```
+<p align="center" >
+ <img src="./images/without-isp2.png" width="60%" >
+</p>
 
 This design is rigid and violates ISP because the `Engineer` class is forced to depend on methods it does not need.
 
@@ -55,47 +36,15 @@ This design is rigid and violates ISP because the `Engineer` class is forced to 
 
 To follow ISP, we can break the `Worker` interface into smaller, more specific interfaces:
 
-```java
-public interface Workable {
-    void work();
-}
-
-public interface Manageable {
-    void manage();
-}
-
-public interface Supervisable {
-    void supervise();
-}
-```
+<p align="center" >
+ <img src="./images/with-isp1.png" width="60%" >
+</p>
 
 Now, `Engineer` and `Manager` can implement only the interfaces relevant to them:
 
-```java
-public class Engineer implements Workable {
-    @Override
-    public void work() {
-        System.out.println("Engineer is working.");
-    }
-}
-
-public class Manager implements Workable, Manageable, Supervisable {
-    @Override
-    public void work() {
-        System.out.println("Manager is working.");
-    }
-
-    @Override
-    public void manage() {
-        System.out.println("Manager is managing.");
-    }
-
-    @Override
-    public void supervise() {
-        System.out.println("Manager is supervising.");
-    }
-}
-```
+<p align="center" >
+ <img src="./images/with-isp2.png" width="60%" >
+</p>
 
 ### [Benefits of Following ISP](#benefits-of-following-isp)
 1. **Focused Interfaces**: By keeping interfaces focused, each implementing class can adhere to only the methods it needs.
