@@ -27,3 +27,7 @@ Examples of creational patterns are -
 3. **[Behavioral Patterns:](BehavioralPatterns/BehavioralPatterns.md)** These deal with object interaction, communication, and responsibilities. Behavioral patterns help define the way objects collaborate and delegate responsibility, facilitating better management of complex flows and enabling greater flexibility.
 
 Using these patterns can lead to more organized, efficient, and modular code, which is easier to test and maintain.
+
+<hr>
+
+
