@@ -21,7 +21,7 @@ Here’s a brief overview of each principle:
 
 Following the **SOLID** principles leads to a well-structured, modular, and testable codebase that’s easier to adapt to changes and extend over time.
 1. [Single Responsibility Principle](SingleResponsibilityPrinciple.md#single-reponsibility-principle-srp)
-2. [Open/Closed Principle]()
+2. [Open/Closed Principle](OpenClosedPrinciple.md#open-closed-principle-ocp)
 3. [Liskov Substitution Principle]()
 4. [Interface Segregation Principle]()
 5. [Dependency Inversion Principle]()
