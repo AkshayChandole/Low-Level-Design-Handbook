@@ -24,6 +24,6 @@ Following the **SOLID** principles leads to a well-structured, modular, and test
 2. [Open/Closed Principle](OpenClosedPrinciple.md#open-closed-principle-ocp)
 3. [Liskov Substitution Principle](LiskovSubstitutionPrinciple.md#liskov-substitution-principle-lsp)
 4. [Interface Segregation Principle](InterfaceSegregationPrinciple.md#interface-segregation-principle)
-5. [Dependency Inversion Principle]()
+5. [Dependency Inversion Principle](DependencyInversionPrinciple.md#dependency-inversion-principle-dip)
 
 <hr>
