@@ -23,7 +23,7 @@ Without SRP, a `Book` class might handle all aspects of book management, such as
 #### Without SRP:
 
 <p align="center" >
- <img src="./images/without-srp.png" width="80%" >
+ <img src="./images/without-srp.png" width="60%" >
 </p>
 
 
@@ -39,7 +39,7 @@ This makes the class more complex, tightly coupled, and harder to maintain.
 By applying SRP, we can split these responsibilities into separate classes:
 
 <p align="center" >
- <img src="./images/with-srp.png" width="80%" >
+ <img src="./images/with-srp.png" width="60%" >
 </p>
 
 Here:
