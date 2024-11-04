@@ -19,13 +19,13 @@ Low Level Design Interview Handbook
 <hr>
 
 ## ❄️ [Design Patterns](DesignPatterns/DesignPatterns.md#design-patterns)
-- Creational Patterns:
+- [Creational Patterns:](DesignPatterns/DesignPatterns.md#creational-patterns)
   - Singleton Pattern
   - Factory Method Pattern
   - Abstract Factory Pattern
   - Builder Pattern
   - Prototype Pattern
-- Structural Patterns:
+- [Structural Patterns:](DesignPatterns/DesignPatterns.md#structural-patterns)
   - Adapter Pattern
   - Decorator Pattern
   - Proxy Pattern
@@ -33,7 +33,7 @@ Low Level Design Interview Handbook
   - Facade Pattern
   - Flyweight Pattern
   - Bridge Pattern
-- Behavioral Patterns:
+- [Behavioral Patterns:](DesignPatterns/DesignPatterns.md#behavioral-patterns)
   - Strategy Pattern
   - Observer Pattern
   - Command Pattern
