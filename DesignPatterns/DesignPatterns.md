@@ -26,7 +26,7 @@ Examples of creational patterns are -
   
  <br>
 
-### **[Structural Patterns:](structural-patterns)** 
+### **[Structural Patterns:](#structural-patterns)** 
 These focus on class and object composition, defining relationships between entities to make them work together as a larger, flexible structure. They help organize classes and objects into more comprehensive and effective structures.
 
 Examples of structural patterns are -
