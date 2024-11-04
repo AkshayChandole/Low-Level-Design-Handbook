@@ -21,6 +21,8 @@ Examples of creational patterns are -
       * [Abstract Factory Pattern](CreationalPatterns/AbstractFactoryPattern.md)
       * [Builder Pattern](CreationalPatterns/BuilderPattern.md)
       * [Prototype Pattern](CreationalPatterns/PrototypePattern.md)
+  
+ <br>
 
 2. **[Structural Patterns:](StructuralPatterns/StructuralPatterns.md)** These focus on class and object composition, defining relationships between entities to make them work together as a larger, flexible structure. They help organize classes and objects into more comprehensive and effective structures.
 Examples of structural patterns are -
@@ -31,8 +33,24 @@ Examples of structural patterns are -
       * [Facade Pattern](StructuralPatterns/FacadePattern.md)
       * [Flyweight Pattern](StructuralPatterns/FlyweightPattern.md)
       * [Bridge Pattern](StructuralPatterns/BridgePattern.md)
+  
+ <br>
 
-4. **[Behavioral Patterns:](BehavioralPatterns/BehavioralPatterns.md)** These deal with object interaction, communication, and responsibilities. Behavioral patterns help define the way objects collaborate and delegate responsibility, facilitating better management of complex flows and enabling greater flexibility.
+3. **[Behavioral Patterns:](BehavioralPatterns/BehavioralPatterns.md)** These deal with object interaction, communication, and responsibilities. Behavioral patterns help define the way objects collaborate and delegate responsibility, facilitating better management of complex flows and enabling greater flexibility.
+Examples of behavioral patterns are -
+      * [Strategy Pattern](BehavioralPatterns/StrategyPattern.md)
+      * [Observer Pattern](BehavioralPatterns/ObserverPattern.md)
+      * [Command Pattern](BehavioralPatterns/CommandPattern.md)
+      * [Chain of Responsibility Pattern](BehavioralPatterns/ChainOfResponsibilityPattern.md)
+      * [State Pattern](BehavioralPatterns/StatePattern.md)
+      * [Iterator Pattern](BehavioralPatterns/IteratorPattern.md)
+      * [Visitor Pattern](BehavioralPatterns/VisitorPattern.md)
+      * [Template Method Pattern](BehavioralPatterns/TemplateMethodPattern.md)
+      * [Mediator Pattern](BehavioralPatterns/MediatorPattern.md)
+      * [Memento Pattern](BehavioralPatterns/MementoPattern.md)
+      * [Interpreter Pattern](BehavioralPatterns/InterpreterPattern.md)
+
+<br>
 
 Using these patterns can lead to more organized, efficient, and modular code, which is easier to test and maintain.
 
