@@ -79,6 +79,22 @@ Examples of behavioral patterns are -
  - [Memento Pattern](BehavioralPatterns/MementoPattern.md)
  - [Interpreter Pattern](BehavioralPatterns/InterpreterPattern.md)
 
+**When to use behavioral design patterns?**
+| Behavioral Design Patterns | When to use |
+| -------- | ------- |
+| Chain of Responsibility | <ul><li>When a program needs to handle various requests differently without knowing the sequence and type of requests beforehand.</li><li>In event bubbling in the DOM, where the event propagates through nested elements and one of them may choose to handle it.</li></ul> |
+| Command | <ul><li>To queue and execute requests at different times.</li><li>To perform “reset” or “undo” operations.</li><li>To keep a history of requests made.</li></ul> |
+| Iterator | <ul><li>When dealing with problems explicitly related to iteration, for designing flexible looping constructs.</li><li>To access elements from a complex collection without knowing the underlying representation.</li><li>To implement a generic iterator that traverses any collection efficiently, independent of its type.</li></ul> |
+| Mediator | <ul><li>To avoid tight coupling of objects in a system with many objects.</li><li>To improve code readability.</li><li>To make code easier to maintain.</li></ul> |
+| Observer | <ul><li>To improve code management by breaking down large applications into loosely coupled objects.</li><li>To improve communication between different parts of the application.</li><li>To create a one-to-many dependency between loosely coupled objects.</li></ul> |
+| Visitor | <ul><li>To perform operations across a group of related but different objects without changing their classes.</li><li>To add new operations to complex object structures without modifying the objects themselves.</li><li>To add extensibility to libraries or frameworks by allowing users to plug in new behaviors easily.</li></ul> |
+| Interpreter | <ul><li>To build simple scripting languages or small domain-specific languages.</li><li>To define rules or grammar for processing expressions.</li><li>To interpret math expressions, search filters, or configuration scripts.</li></ul> |
+| Memento | <ul><li>To implement undo and redo features in editors or applications.</li><li>To save snapshots of an object’s state without exposing its internal details.</li><li>To restore a system to a previous state when needed.</li></ul> |
+| State | <ul><li>When an object’s behavior needs to change based on its internal state.</li><li>In scenarios like media players, game characters, or workflow steps.</li><li>To remove large if-else or switch statements related to state transitions.</li></ul> |
+| Strategy | <ul><li>To select an algorithm at runtime based on the situation.</li><li>To swap out business rules or operations without changing the main logic.</li><li>For use cases like payment, sorting, or route-finding strategies.</li></ul> |
+| Template Method | <ul><li>When multiple classes follow the same steps but need to change some of those steps.</li><li>To enforce a common structure for related processes.</li><li>In frameworks to let subclasses override parts of an algorithm.</li></ul> |
+
+
 <br>
 
 Using these patterns can lead to more organized, efficient, and modular code, which is easier to test and maintain.
