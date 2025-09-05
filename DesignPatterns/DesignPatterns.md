@@ -23,7 +23,18 @@ Examples of creational patterns are -
  - [Abstract Factory Pattern](CreationalPatterns/AbstractFactoryPattern.md)
  - [Builder Pattern](CreationalPatterns/BuilderPattern.md) 
  - [Prototype Pattern](CreationalPatterns/PrototypePattern.md)
-  
+
+**When to use creational design patterns?**
+
+| Creational Design Patterns | When to use |
+| -------- | ------- |
+| Factory pattern | <ul><li>When the type of objects required cannot be anticipated beforehand.</li><li>When multiple objects that share similar characteristics need to be created.</li><li>When you want to generalize the object instantiation process, since the object set up is complex in nature.</li></ul> |
+| Constructor pattern | <ul><li>When you want to create multiple instances of the same template, since the instances can share methods but can still be different.</li><li>Useful in Libraries and Plugins design.</li></ul> |
+| Singleton pattern | <ul><li>When a single object is needed to coordinate actions across a system.</li><li>When services store state, configuration, and provide access to resources.</li><li>Databases such as MongoDB utilize it for database connections.</li><li>When configuration objects don’t need multiple instances.</li></ul> |
+| Builder pattern | <ul><li>When building complex objects whose construction process should be hidden.</li><li>Useful in apps requiring step-by-step object creation (e.g., DOM with nodes and attributes).</li></ul> |
+| Prototype pattern | <ul><li>To eliminate the overhead of initializing an object.</li><li>When the system should be independent of how products are created.</li><li>When creating objects from a database and values are copied to the cloned object.</li></ul> |
+| Abstract pattern | <ul><li>When applications require reuse or sharing of objects.</li><li>For applications with multiple families of related objects needing to be used together.</li><li>When object caching is required.</li><li>When the object creation process should be hidden from the client.</li></ul> |
+
  <br>
 
 ### **[Structural Patterns:](#structural-patterns)** 
