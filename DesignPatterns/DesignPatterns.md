@@ -48,6 +48,18 @@ Examples of structural patterns are -
  - [Facade Pattern](StructuralPatterns/FacadePattern.md)
  - [Flyweight Pattern](StructuralPatterns/FlyweightPattern.md)
  - [Bridge Pattern](StructuralPatterns/BridgePattern.md)
+
+**When to use structural design patterns?**
+| Structural Design Patterns | When to use |
+| -------- | ------- |
+| Decorator | <ul><li>To modify or extend the functionality of an object without changing its base code.</li><li>To implement additional functionalities of similar objects instead of reusing the same code.</li></ul> |
+| Facade | <ul><li>To simplify a client’s interaction with a system by hiding the underlying complex code.</li><li>To interact with the methods present in a library without knowing the processing that happens in the background.</li></ul> |
+| Adapter | <ul><li>To enable old APIs to work with new refactored ones.</li><li>To allow an object to cooperate with a class that has an incompatible interface.</li><li>To reuse the existing functionality of classes.</li></ul> |
+| Bridge | <ul><li>To extend a class in several independent dimensions.</li><li>To change the implementation at run time.</li><li>To share the implementation between objects.</li></ul> |
+| Composite | <ul><li>To allow the reuse of objects without worrying about their compatibility.</li><li>To develop a scalable application that uses plenty of objects.</li><li>To create a tree-like hierarchy of objects.</li></ul> |
+| Flyweight | <ul><li>To share a list of immutable strings across the application.</li><li>To prevent load time as it allows caching.</li></ul> |
+| Proxy | <ul><li>To reduce the workload on the target object.</li></ul> |
+
   
  <br>
 
