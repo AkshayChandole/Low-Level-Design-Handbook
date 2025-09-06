@@ -131,3 +131,8 @@ Domain-Driven Design (DDD) at LLD Level
 - Entities, Value Objects
 - Repositories
 - Aggregates (in object design context)
+
+---
+
+## [Real World Design Problems](#real-world-design-problems)
+1. [Parking Lot](#parking-lot)
