@@ -13,3 +13,22 @@ A parking lot is a designated area for parking vehicles, commonly found in venue
   - Factory Method: Helps create various parking spot and vehicle type objects dynamically without changing client code.
   - Observer (Optional): Can notify parking agents or automated panels when spots become available or full.
   - Proxy (Optional): Can manage access to payment gateways or ticket validation, adding security and caching if needed.
+
+## [Requirements collection](#requirements-collection)
+1. The parking lot must support a total capacity of up to 40,000 vehicles.
+2. The parking lot must support multiple types of parking spots:
+   - Accessible (for individuals with disabilities)
+   - Compact
+   - Large
+   - Motorcycle
+3. The parking lot should provide multiple entrance and exit points to support efficient traffic flow.
+4. The system must support parking for four types of vehicles: cars, trucks, vans, and motorcycles.
+5. A display board at each entrance and on every floor should show the current number of available parking spots for each parking spot type.
+6. The system must not allow more vehicles to enter once the parking lot reaches its maximum capacity.
+7. When the parking lot is fully occupied, a clear message should be shown at each entrance and on all parking lot display boards.
+8. Customers must be issued a parking ticket at entry, which will be used to track parking time and calculate payment at exit.
+9. Customers should be able to pay for parking at the automated exit panel.
+10. The parking lot system must support configurable pricing rates based on vehicle type and/or parking spot type and different rates for different parking durations (e.g., first hour, subsequent hours).
+11. Payments must be accepted via credit/debit card and cash at all payment points.
+
+    
