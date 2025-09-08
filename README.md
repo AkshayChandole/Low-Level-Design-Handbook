@@ -135,4 +135,4 @@ Domain-Driven Design (DDD) at LLD Level
 ---
 
 ## [Real World Design Problems](#real-world-design-problems)
-1. [Parking Lot](#parking-lot)
+1. [Parking Lot](https://github.com/AkshayChandole/Low-Level-Design-Handbook/blob/main/real-world-design-problems/ParkingLot.md#parking-lot)
