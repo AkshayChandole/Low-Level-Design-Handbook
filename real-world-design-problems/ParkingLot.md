@@ -111,19 +111,19 @@ Similar to the Vehicle class, the ParkingSpot should also be an abstract class. 
   <img src="https://github.com/user-attachments/assets/a6b99b61-7845-4ee0-b980-1749094056cb" alt="image" width="50%" height="50%">
 </p>
 
-#### Account
+### Account
 Similar to the Vehicle and ParkingSpot classes, Account should also be an abstract class. The Admin class is derived from this abstract class.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c153b9a1-538a-4c3d-b89c-bfd3abe53be0" alt="image" width="50%" height="50%">
 </p>
 
-#### Display board
+### Display board
 This class represents the free parking spot types and the number of empty slots.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/92420d44-fe59-492b-a9ef-d32b93f42eb1" alt="image" width="50%" height="50%">
 </p>
 
-#### Entrance and exit 
+### Entrance and exit 
 The Entrance class is responsible for generating the parking ticket whenever a vehicle arrives. It contains the ID attribute, since there are multiple entrances to the parking lot. It also has the getTicket() method.
 
 The Exit class is responsible for validating the parking ticket’s payment status before allowing the vehicle to exit the parking lot. It contains the ID attribute, since there are multiple exits to the parking lot. It also has the validateTicket() method.
