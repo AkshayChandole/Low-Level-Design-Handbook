@@ -24,11 +24,14 @@ A parking lot is a designated area for parking vehicles, commonly found in venue
 4. The system must support parking for four types of vehicles: cars, trucks, vans, and motorcycles.
 <img width="1727" height="478" alt="image" src="https://github.com/user-attachments/assets/258825d1-51a4-4883-9a95-14046d6aceb6" />
 5. A display board at each entrance and on every floor should show the current number of available parking spots for each parking spot type.
+<img width="1445" height="908" alt="image" src="https://github.com/user-attachments/assets/0088acd1-8d48-4e1a-add4-1df029159d97" />
 6. The system must not allow more vehicles to enter once the parking lot reaches its maximum capacity.
 7. When the parking lot is fully occupied, a clear message should be shown at each entrance and on all parking lot display boards.
 8. Customers must be issued a parking ticket at entry, which will be used to track parking time and calculate payment at exit.
 9. Customers should be able to pay for parking at the automated exit panel.
 10. The parking lot system must support configurable pricing rates based on vehicle type and/or parking spot type and different rates for different parking durations (e.g., first hour, subsequent hours).
 11. Payments must be accepted via credit/debit card and cash at all payment points.
+<img width="1024" height="907" alt="image" src="https://github.com/user-attachments/assets/84781e1b-53e0-4b90-a7dd-c62507238182" />
+
 
     
