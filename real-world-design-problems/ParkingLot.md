@@ -1,4 +1,3 @@
-<img width="1727" height="478" alt="image" src="https://github.com/user-attachments/assets/edb79923-b8c8-4e5c-85c7-7afe52f3132f" />
 # [Parking Lot](#parking-lot)
 Make an object-oriented design for a multi-entrance and exit parking lot system.
 
