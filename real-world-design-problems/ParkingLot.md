@@ -3,8 +3,9 @@ Make an object-oriented design for a multi-entrance and exit parking lot system.
 
 ## [Problem definition](#problem-definition)
 A parking lot is a designated area for parking vehicles, commonly found in venues like shopping malls, sports stadiums, and office buildings. It consists of a fixed number of parking spots allocated for different types of vehicles. Each spot is charged based on the duration a vehicle remains parked. Parking time is tracked using a parking ticket issued at the entrance. Upon exit, the customer can pay using either an automated exit panel or through a parking agent, with a credit/debit card or cash as accepted payment methods.
-
-<img width="1124" height="694" alt="image" src="https://github.com/user-attachments/assets/e5d770a6-81da-47a5-b2ac-98f4c6d13f0d" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e5d770a6-81da-47a5-b2ac-98f4c6d13f0d" alt="image" width="70%" height="70%">
+</p>
 
 #### Which design pattern(s) should be used for solving the problem of managing a parking lot efficiently?
   - Singleton: Useful for managing the payment processor and central ticket tracking to ensure only one instance controls critical operations across floors and exits.
@@ -22,16 +23,23 @@ A parking lot is a designated area for parking vehicles, commonly found in venue
    - Motorcycle
 3. The parking lot should provide multiple entrance and exit points to support efficient traffic flow.
 4. The system must support parking for four types of vehicles: cars, trucks, vans, and motorcycles.
-<img width="1727" height="478" alt="image" src="https://github.com/user-attachments/assets/258825d1-51a4-4883-9a95-14046d6aceb6" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/258825d1-51a4-4883-9a95-14046d6aceb6" alt="image" width="40%" height="40%">
+</p>
+
 5. A display board at each entrance and on every floor should show the current number of available parking spots for each parking spot type.
-<img width="1445" height="908" alt="image" src="https://github.com/user-attachments/assets/0088acd1-8d48-4e1a-add4-1df029159d97" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0088acd1-8d48-4e1a-add4-1df029159d97" alt="image" width="40%" height="40%">
+</p>
+
 6. The system must not allow more vehicles to enter once the parking lot reaches its maximum capacity.
 7. When the parking lot is fully occupied, a clear message should be shown at each entrance and on all parking lot display boards.
 8. Customers must be issued a parking ticket at entry, which will be used to track parking time and calculate payment at exit.
 9. Customers should be able to pay for parking at the automated exit panel.
 10. The parking lot system must support configurable pricing rates based on vehicle type and/or parking spot type and different rates for different parking durations (e.g., first hour, subsequent hours).
 11. Payments must be accepted via credit/debit card and cash at all payment points.
-<img width="1024" height="907" alt="image" src="https://github.com/user-attachments/assets/84781e1b-53e0-4b90-a7dd-c62507238182" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84781e1b-53e0-4b90-a7dd-c62507238182" alt="image" width="50%" height="50%">
+</p>
 
     
