@@ -101,4 +101,6 @@ Here is the use case diagram of the parking lot system:
     2. Abstract class
 - Enumeration approach is not proficient for object-oriented design because if we want to add one more vehicle type later in our system, we would need to update the code in multiple places, violating the Open/Closed principle of the SOLID design principle. The Open/Closed principle states that classes can be extended but not modified. Therefore, it is recommended not to use the enumeration data type as it is not a scalable approach.
 - The abstract class for Vehicle is the best approach. It allows us to create derived child classes for the Vehicle class. It can also be extended easily in case the vehicle type changes.
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ba7a06ac-3fd2-46ce-8bd8-c2f956533f3e" alt="image" width="70%" height="70%">
+</p>
