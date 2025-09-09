@@ -1,4 +1,4 @@
-
+<img width="1727" height="478" alt="image" src="https://github.com/user-attachments/assets/edb79923-b8c8-4e5c-85c7-7afe52f3132f" />
 # [Parking Lot](#parking-lot)
 Make an object-oriented design for a multi-entrance and exit parking lot system.
 
@@ -23,6 +23,7 @@ A parking lot is a designated area for parking vehicles, commonly found in venue
    - Motorcycle
 3. The parking lot should provide multiple entrance and exit points to support efficient traffic flow.
 4. The system must support parking for four types of vehicles: cars, trucks, vans, and motorcycles.
+<img width="1727" height="478" alt="image" src="https://github.com/user-attachments/assets/258825d1-51a4-4883-9a95-14046d6aceb6" />
 5. A display board at each entrance and on every floor should show the current number of available parking spots for each parking spot type.
 6. The system must not allow more vehicles to enter once the parking lot reaches its maximum capacity.
 7. When the parking lot is fully occupied, a clear message should be shown at each entrance and on all parking lot display boards.
