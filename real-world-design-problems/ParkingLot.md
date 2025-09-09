@@ -54,14 +54,14 @@ Our system is the parking lot system. It manages the entire parking process, inc
 
 ### [Actors](#actors)
 Here are the main actors of our parking lot system:
-##### Primary actors -
+#### Primary actors -
   - **Customer:** Parks their vehicle, obtains a parking ticket, pays the parking fee, and exits the parking lot.
 
-##### Secondary actors -
+#### Secondary actors -
   - **Admin:** Manages system resources, such as parking spots, entry/exit panels, and pricing. Also handles account and system configuration.
 
 ### [Use cases](#use-cases)
-##### Admin -
+#### Admin -
   - **Add a parking spot:** To add a new parking spot, specify spot type (accessible, compact, large, motorcycle) and location (e.g., floor, section).
   - **Remove the parking spot:** Remove it from the system if it is no longer available (due to maintenance or repurposing).
   - **Update the parking spot:** This is to update the details of an existing parking spot, such as changing its type or status (e.g., available/unavailable).
