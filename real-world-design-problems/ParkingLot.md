@@ -72,3 +72,11 @@ Here are the main actors of our parking lot system:
 | **Login/Logout** | Securely access or exit the system. |
 | **View the account** | View account details: payment status, balances, activity history. |
 
+#### Customer use cases -
+| Use Case              | Description |
+|------------------------|-------------|
+| **Take ticket**        | Receive a parking ticket at the entrance, which records vehicle information and entry time. |
+| **Scan ticket at exit**| Present the ticket at the exit to calculate the total parking fee based on duration, vehicle, and spot type. |
+| **Pay for ticket**     | Pay the parking fee using cash or card at an automated exit panel. |
+| **Park vehicle**       | Park the vehicle in the spot assigned by the system. |
+
