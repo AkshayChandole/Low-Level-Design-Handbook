@@ -89,3 +89,6 @@ Here are the main actors of our parking lot system:
 | **Show available spots**  | Provide real-time updates of available spots by type at each entrance, exit, and floor. |
 | **Calculate parking fee** | Determine the total amount owed by the customer based on duration, vehicle type, and spot type, triggered when the ticket is scanned at exit. |
 
+Here is the use case diagram of the parking lot system:
+<img width="1386" height="933" alt="image" src="https://github.com/user-attachments/assets/7210da1e-4322-417b-af70-ab9829df9879" />
+
