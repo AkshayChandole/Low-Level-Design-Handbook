@@ -61,11 +61,14 @@ Here are the main actors of our parking lot system:
   - **Admin:** Manages system resources, such as parking spots, entry/exit panels, and pricing. Also handles account and system configuration.
 
 ### [Use cases](#use-cases)
-#### Admin -
-  - **Add a parking spot:** To add a new parking spot, specify spot type (accessible, compact, large, motorcycle) and location (e.g., floor, section).
-  - **Remove the parking spot:** Remove it from the system if it is no longer available (due to maintenance or repurposing).
-  - **Update the parking spot:** This is to update the details of an existing parking spot, such as changing its type or status (e.g., available/unavailable).
-  - **Add/modify rate:** To configure or change the pricing rates for durations, vehicles, or parking spot types.
-  - **Update the account:** To update the admin or agent account details and manage payment information or permissions.
-  - **Login/Logout:** To securely log in or out of the admin or agent account to access system features.
-  - **View the account:** To view account details such as payment status, outstanding balances, or account activity history.
+#### Admin use cases -
+| Use Case                | Description |
+|------------------------|-------------|
+| **Add a parking spot** | Add a new parking spot by specifying type (accessible, compact, large, motorcycle) and location (floor, section). |
+| **Remove the parking spot** | Remove a spot from the system (e.g., maintenance, repurposing). |
+| **Update the parking spot** | Change details like type or status (available/unavailable). |
+| **Add/modify rate** | Configure or update pricing rates by duration, vehicle, or spot type. |
+| **Update the account** | Update admin/agent account details, manage payment info or permissions. |
+| **Login/Logout** | Securely access or exit the system. |
+| **View the account** | View account details: payment status, balances, activity history. |
+
