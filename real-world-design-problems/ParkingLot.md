@@ -85,7 +85,7 @@ Here are the main actors of our parking lot system:
 |---------------------------|-------------|
 | **Assign parking spot**   | Automatically select and allocate an available spot based on vehicle type, spot type, and real-time availability. |
 | **Remove parking spot**   | Update the spot’s status to unavailable if the spot is out of service or being removed from inventory. |
-| **Show full**             | Display a “full” status at entrances and on display boards when the parking lot or a specific spot type is at capacity. |
+| **Show FULL status**             | Display a “FULL” status at entrances and on display boards when the parking lot or a specific spot type is at capacity. |
 | **Show available spots**  | Provide real-time updates of available spots by type at each entrance, exit, and floor. |
 | **Calculate parking fee** | Determine the total amount owed by the customer based on duration, vehicle type, and spot type, triggered when the ticket is scanned at exit. |
 
