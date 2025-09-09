@@ -92,3 +92,13 @@ Here are the main actors of our parking lot system:
 Here is the use case diagram of the parking lot system:
 <img width="1386" height="933" alt="image" src="https://github.com/user-attachments/assets/7210da1e-4322-417b-af70-ab9829df9879" />
 
+## [Class Diagram for the Parking Lot](#class-diagram-for-the-parking-lot)
+
+### Vehicle
+- Our parking lot system should have a vehicle object according to the requirements. The vehicle can be a car, a truck, a van, or a motorcycle.
+- There are two ways to represent a vehicle in our system:
+    1. Enumeration
+    2. Abstract class
+- Enumeration approach is not proficient for object-oriented design because if we want to add one more vehicle type later in our system, we would need to update the code in multiple places, violating the Open/Closed principle of the SOLID design principle. The Open/Closed principle states that classes can be extended but not modified. Therefore, it is recommended not to use the enumeration data type as it is not a scalable approach.
+- The abstract class for Vehicle is the best approach. It allows us to create derived child classes for the Vehicle class. It can also be extended easily in case the vehicle type changes.
+
