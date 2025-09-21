@@ -252,13 +252,13 @@ Let’s see some examples of additional requirements:
 ### **Parking floor:** 
 The parking lot should have multiple floors where customers can park their cars. The class diagram provided below shows the relationship of **`ParkingFloor`** with other classes:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a7fcd904-a064-4a5f-8222-a89c59bd6956" alt="image" width="60%" height="60%">
+  <img src="https://github.com/user-attachments/assets/a7fcd904-a064-4a5f-8222-a89c59bd6956" alt="image" width="70%" height="70%">
 </p>
 
 ### Electric: 
 The parking lot should have some parking spots specified for electric cars. These spots should have an electric panel through which customers can pay and charge their vehicles. The class diagram provided below shows the relationship of **`Electric`** and **`ElectricPanel`** with other classes:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/65d30913-56b3-4f9a-8535-71a563ca83d5" alt="image" width="60%" height="60%">
+  <img src="https://github.com/user-attachments/assets/65d30913-56b3-4f9a-8535-71a563ca83d5" alt="image" width="75%" height="75%">
 </p>
 
 ---
