@@ -170,13 +170,13 @@ The following provides an overview of the enumerations and custom data types use
 ### Address
 We also need to create a custom data type, **`Address`**, that will store the location of the parking lot.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c19932b7-6f72-48e3-99df-43de0cc5a5b3" alt="image" width="50%" height="50%">
+  <img src="https://github.com/user-attachments/assets/c19932b7-6f72-48e3-99df-43de0cc5a5b3" alt="image" width="30%" height="30%">
 </p>
 
 ### Person
 The **`Person`** class is used to store information related to a person like a name, street address, country, etc.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/36114419-b565-41fa-a44d-367d5770d2d5" alt="image" width="50%" height="50%">
+  <img src="https://github.com/user-attachments/assets/36114419-b565-41fa-a44d-367d5770d2d5" alt="image" width="30%" height="30%">
 </p>
 
 
