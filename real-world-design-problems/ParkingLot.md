@@ -665,7 +665,7 @@ public class Driver {
 ---
 
 <details>
-<summary>C++</summary>
+<summary><strong>C++</strong></summary>
 
 ```cpp
 
