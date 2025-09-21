@@ -668,7 +668,800 @@ public class Driver {
 <summary>C++</summary>
 
 ```cpp
-cout << "Hello from C++" << endl;
+
+//**********************************************************
+// PaymentStatus.h
+#pragma once
+
+enum class PaymentStatus {
+    COMPLETED,
+    FAILED,
+    PENDING,
+    UNPAID,
+    REFUNDED
+};
+
+//**********************************************************
+// AccountStatus.h
+#pragma once
+
+enum class AccountStatus {
+    ACTIVE,
+    CLOSED,
+    CANCELED,
+    BLACKLISTED,
+    NONE
+};
+
+//**********************************************************
+// TicketStatus.h
+#pragma once
+
+enum class TicketStatus {
+    ISSUED,
+    IN_USE,
+    PAID,
+    VALIDATED,
+    CANCELED,
+    REFUNDED
+};
+
+//**********************************************************
+// Person.h
+#pragma once
+#include <string>
+
+class Person {
+private:
+    std::string name;
+    std::string address;
+    std::string phone;
+    std::string email;
+
+public:
+    // Constructors
+    Person() = default;
+    Person(const std::string& name,
+           const std::string& address,
+           const std::string& phone,
+           const std::string& email)
+        : name(name), address(address), phone(phone), email(email) {}
+
+    // Getters and setters (optional, add if needed)
+    const std::string& getName() const { return name; }
+    void setName(const std::string& n) { name = n; }
+
+    const std::string& getAddress() const { return address; }
+    void setAddress(const std::string& a) { address = a; }
+
+    const std::string& getPhone() const { return phone; }
+    void setPhone(const std::string& p) { phone = p; }
+
+    const std::string& getEmail() const { return email; }
+    void setEmail(const std::string& e) { email = e; }
+};
+
+//**********************************************************
+// Address.h
+#pragma once
+#include <string>
+
+class Address {
+private:
+    int zipCode;
+    std::string street;
+    std::string city;
+    std::string state;
+    std::string country;
+
+public:
+    // Constructors
+    Address() = default;
+    Address(int zipCode,
+            const std::string& street,
+            const std::string& city,
+            const std::string& state,
+            const std::string& country)
+        : zipCode(zipCode), street(street), city(city), state(state), country(country) {}
+
+    // Getters and setters (optional)
+    int getZipCode() const { return zipCode; }
+    void setZipCode(int z) { zipCode = z; }
+
+    const std::string& getStreet() const { return street; }
+    void setStreet(const std::string& s) { street = s; }
+
+    const std::string& getCity() const { return city; }
+    void setCity(const std::string& c) { city = c; }
+
+    const std::string& getState() const { return state; }
+    void setState(const std::string& s) { state = s; }
+
+    const std::string& getCountry() const { return country; }
+    void setCountry(const std::string& c) { country = c; }
+};
+
+//**********************************************************
+// ParkingSpot.h
+#pragma once
+#include <iostream>
+#include <memory>
+#include "Vehicle.h"
+
+class ParkingSpot {
+protected:
+    int id;
+    bool isFree = true;
+    std::shared_ptr<Vehicle> vehicle; // Use smart pointer for memory safety
+
+public:
+    ParkingSpot(int id) : id(id) {}
+    virtual ~ParkingSpot() = default;
+
+    bool isSpotFree() const { return isFree; }
+
+    // Pure virtual method
+    virtual bool assignVehicle(const std::shared_ptr<Vehicle>& v) = 0;
+
+    virtual bool removeVehicle() {
+        if (!isFree && vehicle) {
+            std::cout << "Slot " << id << " freed (was " << vehicle->getLicenseNo() << ")" << std::endl;
+            vehicle = nullptr;
+            isFree = true;
+            return true;
+        }
+        return false;
+    }
+
+    int getId() const { return id; }
+};
+
+//**********************************************************
+// Handicapped.h
+#pragma once
+#include "ParkingSpot.h"
+
+class Handicapped : public ParkingSpot {
+public:
+    Handicapped(int id) : ParkingSpot(id) {}
+
+    bool assignVehicle(const std::shared_ptr<Vehicle>& v) override {
+        if (isFree) {
+            std::cout << "Allocated Handicapped slot " << id << " to " << v->getLicenseNo() << std::endl;
+            vehicle = v;
+            isFree = false;
+            return true;
+        }
+        return false;
+    }
+};
+
+//**********************************************************
+// Compact.h
+#pragma once
+#include "ParkingSpot.h"
+
+class Compact : public ParkingSpot {
+public:
+    Compact(int id) : ParkingSpot(id) {}
+
+    bool assignVehicle(const std::shared_ptr<Vehicle>& v) override {
+        if (isFree) {
+            std::cout << "Allocated Compact slot " << id << " to " << v->getLicenseNo() << std::endl;
+            vehicle = v;
+            isFree = false;
+            return true;
+        }
+        return false;
+    }
+};
+
+//**********************************************************
+// Large.h
+#pragma once
+#include "ParkingSpot.h"
+
+class Large : public ParkingSpot {
+public:
+    Large(int id) : ParkingSpot(id) {}
+
+    bool assignVehicle(const std::shared_ptr<Vehicle>& v) override {
+        if (isFree) {
+            std::cout << "Allocated Large slot " << id << " to " << v->getLicenseNo() << std::endl;
+            vehicle = v;
+            isFree = false;
+            return true;
+        }
+        return false;
+    }
+};
+
+//**********************************************************
+// MotorcycleSpot.h
+#pragma once
+#include "ParkingSpot.h"
+
+class MotorcycleSpot : public ParkingSpot {
+public:
+    MotorcycleSpot(int id) : ParkingSpot(id) {}
+
+    bool assignVehicle(const std::shared_ptr<Vehicle>& v) override {
+        if (isFree) {
+            std::cout << "Allocated Motorcycle slot " << id << " to " << v->getLicenseNo() << std::endl;
+            vehicle = v;
+            isFree = false;
+            return true;
+        }
+        return false;
+    }
+};
+
+//**********************************************************
+// Vehicle.h
+#pragma once
+#include <string>
+#include <memory>
+
+// Forward declaration to resolve circular dependency
+class ParkingTicket;
+
+class Vehicle {
+protected:
+    std::string licenseNo;
+    std::shared_ptr<ParkingTicket> ticket;
+
+public:
+    Vehicle(const std::string& lic) : licenseNo(lic) {}
+    virtual ~Vehicle() = default;
+
+    std::string getLicenseNo() const { return licenseNo; }
+
+    void assignTicket(const std::shared_ptr<ParkingTicket>& t) { ticket = t; }
+
+    std::shared_ptr<ParkingTicket> getTicket() const { return ticket; }
+};
+
+//**********************************************************
+// Car.h
+#pragma once
+#include "Vehicle.h"
+
+class Car : public Vehicle {
+public:
+    Car(const std::string& lic) : Vehicle(lic) {}
+};
+
+//**********************************************************
+// Van.h
+#pragma once
+#include "Vehicle.h"
+
+class Van : public Vehicle {
+public:
+    Van(const std::string& lic) : Vehicle(lic) {}
+};
+
+//**********************************************************
+// Truck.h
+#pragma once
+#include "Vehicle.h"
+
+class Truck : public Vehicle {
+public:
+    Truck(const std::string& lic) : Vehicle(lic) {}
+};
+
+//**********************************************************
+// Motorcycle.h
+#pragma once
+#include "Vehicle.h"
+
+class Motorcycle : public Vehicle {
+public:
+    Motorcycle(const std::string& lic) : Vehicle(lic) {}
+};
+
+//**********************************************************
+// Account.h
+#pragma once
+#include <string>
+#include <memory>
+#include "Person.h"
+#include "AccountStatus.h"
+
+class Account {
+protected:
+    std::string userName;
+    std::string password;
+    std::shared_ptr<Person> person;
+    AccountStatus status;
+
+public:
+    virtual ~Account() = default;
+
+    virtual bool resetPassword() = 0;
+};
+
+//**********************************************************
+// Admin.h
+#pragma once
+#include "Account.h"
+#include "ParkingSpot.h"
+#include "DisplayBoard.h"
+#include "Entrance.h"
+#include "Exit.h"
+
+class Admin : public Account {
+public:
+    bool addParkingSpot(const std::shared_ptr<ParkingSpot>& /*spot*/) {
+        return true;
+    }
+
+    bool addDisplayBoard(const std::shared_ptr<DisplayBoard>& /*board*/) {
+        return true;
+    }
+
+    bool addEntrance(const std::shared_ptr<Entrance>& /*entrance*/) {
+        return true;
+    }
+
+    bool addExit(const std::shared_ptr<Exit>& /*exit*/) {
+        return true;
+    }
+
+    bool resetPassword() override {
+        return true;
+    }
+};
+
+//**********************************************************
+// DisplayBoard.h
+#pragma once
+#include <iostream>
+#include <map>
+#include <memory>
+#include <vector>
+#include <string>
+#include "ParkingSpot.h"
+
+class DisplayBoard {
+private:
+    int id;
+    std::map<std::string, int> freeCount;
+
+public:
+    DisplayBoard(int id) : id(id) {}
+
+    void update(const std::vector<std::shared_ptr<ParkingSpot>>& spots) {
+        freeCount.clear();
+        for (const auto& s : spots) {
+            if (s->isSpotFree()) {
+                std::string type = typeid(*s).name();
+                // Optionally, strip compiler prefix from typeid().name() for nicer output
+                freeCount[type] = freeCount[type] + 1;
+            }
+        }
+    }
+
+    void showFreeSlot() const {
+        std::cout << "\nFree slots by type:" << std::endl;
+        std::cout << "Type            Count" << std::endl;
+        for (const auto& entry : freeCount) {
+            std::cout << entry.first << std::string(16 - std::min(15, (int)entry.first.size()), ' ')
+                      << entry.second << std::endl;
+        }
+    }
+};
+
+//**********************************************************
+// ParkingRate.h
+#pragma once
+#include <memory>
+#include <cmath>
+#include "Vehicle.h"
+#include "ParkingSpot.h"
+
+class ParkingRate {
+public:
+    double calculate(double hours,
+                     const std::shared_ptr<Vehicle>& /*v*/,
+                     const std::shared_ptr<ParkingSpot>& /*s*/) const {
+        int hrs = static_cast<int>(std::ceil(hours));
+        double fee = 0.0;
+        if (hrs >= 1) fee += 4;
+        if (hrs >= 2) fee += 3.5;
+        if (hrs >= 3) fee += 3.5;
+        if (hrs > 3)  fee += (hrs - 3) * 2.5;
+        return fee;
+    }
+};
+
+//**********************************************************
+// Entrance.h
+#pragma once
+#include <memory>
+#include "Vehicle.h"
+#include "ParkingTicket.h"
+#include "ParkingLot.h"
+
+class Entrance {
+private:
+    int id;
+
+public:
+    Entrance(int id) : id(id) {}
+
+    std::shared_ptr<ParkingTicket> getTicket(const std::shared_ptr<Vehicle>& v) {
+        return ParkingLot::getInstance().parkVehicle(v);
+    }
+};
+
+//**********************************************************
+// Exit.h
+#pragma once
+#include <memory>
+#include <iostream>
+#include <chrono>
+#include <ctime>
+#include "ParkingTicket.h"
+#include "ParkingLot.h"
+#include "Payment.h"
+#include "Cash.h"
+#include "CreditCard.h"
+#include "TicketStatus.h"
+
+class Exit {
+private:
+    int id;
+
+public:
+    Exit(int id) : id(id) {}
+
+    void validateTicket(const std::shared_ptr<ParkingTicket>& t) {
+        // Set exit time to now
+        auto now = std::chrono::system_clock::now();
+        t->setExitTime(now);
+
+        // Calculate hours parked
+        std::chrono::duration<double> duration = now - t->getEntryTime();
+        double hrs = duration.count() / 3600.0;
+
+        // Calculate fee
+        double fee = ParkingLot::getInstance().rate.calculate(
+            hrs,
+            t->getVehicle(),
+            ParkingLot::getInstance().getSpot(t->getSlotNo())
+        );
+        t->setAmount(fee);
+
+        std::cout << "Ticket " << t->getTicketNo()
+                  << " | Parked: " << hrs << " hrs"
+                  << " | Fee: $" << fee << std::endl;
+
+        std::shared_ptr<Payment> p;
+        if (fee > 10) {
+            p = std::make_shared<CreditCard>(fee);
+        } else {
+            p = std::make_shared<Cash>(fee);
+        }
+
+        p->initiateTransaction();
+
+        ParkingLot::getInstance().freeSlot(t->getSlotNo());
+        t->setStatus(TicketStatus::PAID);
+    }
+};
+
+//**********************************************************
+// ParkingTicket.h
+#pragma once
+#include <iostream>
+#include <memory>
+#include <chrono>
+#include "TicketStatus.h"
+#include "Vehicle.h"
+#include "Payment.h"
+
+class ParkingTicket {
+private:
+    static int ticketSeed;
+    int ticketNo;
+    int slotNo;
+    std::shared_ptr<Vehicle> vehicle;
+    std::chrono::system_clock::time_point entryTime;
+    std::chrono::system_clock::time_point exitTime;
+    double amount = 0.0;
+    TicketStatus status;
+    std::shared_ptr<Payment> payment;
+
+public:
+    ParkingTicket(int slotNo, const std::shared_ptr<Vehicle>& v)
+        : ticketNo(ticketSeed++),
+          slotNo(slotNo),
+          vehicle(v),
+          entryTime(std::chrono::system_clock::now()),
+          status(TicketStatus::ISSUED)
+    {
+        v->assignTicket(std::make_shared<ParkingTicket>(*this));
+        std::cout << "Ticket issued: " << ticketNo << std::endl;
+    }
+
+    int getTicketNo() const { return ticketNo; }
+    int getSlotNo() const { return slotNo; }
+    std::shared_ptr<Vehicle> getVehicle() const { return vehicle; }
+
+    std::chrono::system_clock::time_point getEntryTime() const { return entryTime; }
+    std::chrono::system_clock::time_point getExitTime() const { return exitTime; }
+    void setExitTime(const std::chrono::system_clock::time_point& dt) { exitTime = dt; }
+
+    void setAmount(double amt) { amount = amt; }
+    double getAmount() const { return amount; }
+
+    void setStatus(TicketStatus s) { status = s; }
+    TicketStatus getStatus() const { return status; }
+
+    void setPayment(const std::shared_ptr<Payment>& p) { payment = p; }
+    std::shared_ptr<Payment> getPayment() const { return payment; }
+};
+
+// Initialize static member
+int ParkingTicket::ticketSeed = 1000;
+
+//**********************************************************
+// Payment.ht
+#pragma once
+#include <chrono>
+#include "PaymentStatus.h"
+
+class Payment {
+protected:
+    double amount;
+    PaymentStatus status;
+    std::chrono::system_clock::time_point timestamp;
+
+public:
+    Payment(double amt)
+        : amount(amt),
+          status(PaymentStatus::PENDING),
+          timestamp(std::chrono::system_clock::now())
+    {}
+
+    virtual ~Payment() = default;
+
+    virtual bool initiateTransaction() = 0;
+
+    // Accessors (optional)
+    double getAmount() const { return amount; }
+    PaymentStatus getStatus() const { return status; }
+    std::chrono::system_clock::time_point getTimestamp() const { return timestamp; }
+};
+
+//**********************************************************
+// Cash.h
+#pragma once
+#include <iostream>
+#include "Payment.h"
+
+class Cash : public Payment {
+public:
+    Cash(double amt) : Payment(amt) {}
+
+    bool initiateTransaction() override {
+        status = PaymentStatus::COMPLETED;
+        std::cout << "Cash payment of $" << amount << " completed." << std::endl;
+        return true;
+    }
+};
+
+//**********************************************************
+// CreditCard.h
+#pragma once
+#include <iostream>
+#include "Payment.h"
+
+class CreditCard : public Payment {
+public:
+    CreditCard(double amt) : Payment(amt) {}
+
+    bool initiateTransaction() override {
+        status = PaymentStatus::COMPLETED;
+        std::cout << "Credit card payment of $" << amount << " completed." << std::endl;
+        return true;
+    }
+};
+
+//**********************************************************
+// ParkingLot.h
+#pragma once
+#include <map>
+#include <vector>
+#include <memory>
+#include <iostream>
+#include "Car.h"
+#include "Van.h"
+#include "Truck.h"
+#include "Motorcycle.h"
+#include "Large.h"
+#include "Compact.h"
+#include "Handicapped.h"
+#include "MotorcycleSpot.h"
+#include "ParkingSpot.h"
+#include "ParkingTicket.h"
+#include "DisplayBoard.h"
+#include "ParkingRate.h"
+#include "Vehicle.h"
+
+class ParkingLot {
+private:
+    static std::unique_ptr<ParkingLot> instance;
+    ParkingLot() = default;
+
+    std::map<int, std::shared_ptr<ParkingSpot>> spots;
+    std::map<int, std::shared_ptr<ParkingTicket>> tickets;
+    std::vector<std::shared_ptr<DisplayBoard>> boards;
+
+public:
+    ParkingRate rate;
+
+    // Singleton instance getter
+    static ParkingLot& getInstance() {
+        if (!instance) {
+            instance.reset(new ParkingLot());
+        }
+        return *instance;
+    }
+
+    void addSpot(const std::shared_ptr<ParkingSpot>& s) {
+        spots[s->getId()] = s;
+    }
+
+    void addDisplayBoard(const std::shared_ptr<DisplayBoard>& b) {
+        boards.push_back(b);
+    }
+
+    std::shared_ptr<ParkingSpot> getSpot(int id) {
+        auto it = spots.find(id);
+        if (it != spots.end()) return it->second;
+        return nullptr;
+    }
+
+    void freeSlot(int id) {
+        auto s = getSpot(id);
+        if (s) s->removeVehicle();
+    }
+
+    std::vector<std::shared_ptr<ParkingSpot>> getAllSpots() const {
+        std::vector<std::shared_ptr<ParkingSpot>> vec;
+        for (const auto& p : spots) {
+            vec.push_back(p.second);
+        }
+        return vec;
+    }
+
+    std::shared_ptr<ParkingTicket> parkVehicle(const std::shared_ptr<Vehicle>& v) {
+        for (const auto& pair : spots) {
+            const auto& s = pair.second;
+            if (s->isSpotFree() && canFit(v, s)) {
+                s->assignVehicle(v);
+                auto t = std::make_shared<ParkingTicket>(s->getId(), v);
+                tickets[t->getTicketNo()] = t;
+                return t;
+            }
+        }
+        std::cout << "Sorry, parking lot is full. New cars cannot be parked." << std::endl;
+        return nullptr;
+    }
+
+private:
+    bool canFit(const std::shared_ptr<Vehicle>& v, const std::shared_ptr<ParkingSpot>& s) const {
+        // Use RTTI to check types
+        if (dynamic_cast<Motorcycle*>(v.get()) && dynamic_cast<MotorcycleSpot*>(s.get())) return true;
+        if ((dynamic_cast<Truck*>(v.get()) || dynamic_cast<Van*>(v.get())) && dynamic_cast<Large*>(s.get())) return true;
+        if (dynamic_cast<Car*>(v.get()) && (dynamic_cast<Compact*>(s.get()) || dynamic_cast<Handicapped*>(s.get()))) return true;
+        return false;
+    }
+};
+
+// Initialize the singleton instance pointer
+std::unique_ptr<ParkingLot> ParkingLot::instance = nullptr;
+
+//**********************************************************
+// Driver.cpp
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <memory>
+#include "ParkingLot.h"
+#include "Handicapped.h"
+#include "Compact.h"
+#include "Large.h"
+#include "MotorcycleSpot.h"
+#include "DisplayBoard.h"
+#include "Entrance.h"
+#include "Exit.h"
+#include "Car.h"
+#include "Van.h"
+#include "Truck.h"
+#include "Motorcycle.h"
+
+int main() {
+    // -------------- SYSTEM INITIALIZATION --------------
+    std::cout << "\n====================== PARKING LOT SYSTEM DEMO ======================\n" << std::endl;
+
+    ParkingLot& lot = ParkingLot::getInstance();
+    lot.addSpot(std::make_shared<Handicapped>(1));
+    lot.addSpot(std::make_shared<Compact>(2));
+    lot.addSpot(std::make_shared<Large>(3));
+    lot.addSpot(std::make_shared<MotorcycleSpot>(4));
+
+    auto board = std::make_shared<DisplayBoard>(1);
+    lot.addDisplayBoard(board);
+
+    auto entrance = std::make_shared<Entrance>(1);
+    auto exitPanel = std::make_shared<Exit>(1);
+
+    // ----------------- SCENARIO 1: CUSTOMER ENTERS, PARKS -----------------
+    std::cout << "\n→→→ SCENARIO 1: Customer enters and parks a car\n" << std::endl;
+
+    auto car = std::make_shared<Car>("KA-01-HH-1234");
+    std::cout << "-> Car " << car->getLicenseNo() << " arrives at entrance" << std::endl;
+    auto ticket1 = entrance->getTicket(car);
+
+    std::cout << "-> Updating display board after parking:" << std::endl;
+    board->update(lot.getAllSpots());
+    board->showFreeSlot();
+
+    // ----------------- SCENARIO 2: CUSTOMER EXITS AND PAYS -----------------
+    std::cout << "\n→→→ SCENARIO 2: Customer exits and pays\n" << std::endl;
+
+    std::cout << "-> Car " << car->getLicenseNo() << " proceeds to exit panel" << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(1500)); // Simulate parking duration
+    exitPanel->validateTicket(ticket1);
+
+    std::cout << "-> Updating display board after exit:" << std::endl;
+    board->update(lot.getAllSpots());
+    board->showFreeSlot();
+
+    // --------- SCENARIO 3: FILLING LOT AND REJECTING ENTRY IF FULL ---------
+    std::cout << "\n→→→ SCENARIO 3: Multiple customers attempt to enter; lot may become full\n" << std::endl;
+
+    // Vehicles arriving
+    auto van = std::make_shared<Van>("KA-01-HH-9999");
+    auto motorcycle = std::make_shared<Motorcycle>("KA-02-XX-3333");
+    auto truck = std::make_shared<Truck>("KA-04-AA-9998");
+    auto car2 = std::make_shared<Car>("DL-09-YY-1234");
+
+    std::cout << "-> Van " << van->getLicenseNo() << " arrives at entrance" << std::endl;
+    auto ticket2 = entrance->getTicket(van);
+
+    std::cout << "-> Motorcycle " << motorcycle->getLicenseNo() << " arrives at entrance" << std::endl;
+    auto ticket3 = entrance->getTicket(motorcycle);
+
+    std::cout << "-> Truck " << truck->getLicenseNo() << " arrives at entrance" << std::endl;
+    auto ticket4 = entrance->getTicket(truck);
+
+    std::cout << "-> Car " << car2->getLicenseNo() << " arrives at entrance" << std::endl;
+    auto ticket5 = entrance->getTicket(car2);
+
+    std::cout << "-> Updating display board after several parkings:" << std::endl;
+    board->update(lot.getAllSpots());
+    board->showFreeSlot();
+
+    // Try to park another car (lot may now be full)
+    auto car3 = std::make_shared<Car>("UP-01-CC-1001");
+    std::cout << "-> Car " << car3->getLicenseNo() << " attempts to park (should be denied if lot is full):" << std::endl;
+    auto ticket6 = entrance->getTicket(car3);
+
+    board->update(lot.getAllSpots());
+    board->showFreeSlot();
+
+    std::cout << "\n====================== END OF DEMONSTRATION ======================\n" << std::endl;
+
+    return 0;
+}
+
+
+
 ```
 </details>
 
