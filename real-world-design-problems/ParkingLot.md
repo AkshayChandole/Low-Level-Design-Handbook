@@ -263,3 +263,47 @@ The parking lot should have some parking spots specified for electric cars. Thes
 
 ---
 
+## [Code](#code)
+
+<details>
+<summary>Java</summary>
+
+```java
+System.out.println("Hello from Java");
+```
+</details>
+
+---
+
+<details>
+<summary>C++</summary>
+
+```cpp
+cout << "Hello from C++" << endl;
+```
+</details>
+
+
+---
+
+<details>
+<summary>Javascript</summary>
+
+```javascript
+console.log("Hello from JavaScript");
+```
+</details>
+
+---
+
+<details>
+<summary>Python</summary>
+
+```python
+print("Hello from Python")
+```
+</details>
+
+---
+
+
