@@ -1469,7 +1469,7 @@ int main() {
 ---
 
 <details>
-<summary><strong>JAVASCRIPT</summary>
+<summary><strong>JAVASCRIPT</strong></summary>
 
 ```javascript
 // PaymentStatus.js
