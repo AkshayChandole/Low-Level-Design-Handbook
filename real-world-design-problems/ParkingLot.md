@@ -126,8 +126,14 @@ This class represents the free parking spot types and the number of empty slots.
 ### Entrance and exit 
 The Entrance class is responsible for generating the parking ticket whenever a vehicle arrives. It contains the ID attribute, since there are multiple entrances to the parking lot. It also has the getTicket() method.
 
-The Exit class is responsible for validating the parking ticket’s payment status before allowing the vehicle to exit the parking lot. It contains the ID attribute, since there are multiple exits to the parking lot. It also has the validateTicket() method.
+The ```Exit``` class is responsible for validating the parking ticket’s payment status before allowing the vehicle to exit the parking lot. It contains the ID attribute, since there are multiple exits to the parking lot. It also has the **`validateTicket()`** method.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/691ef67b-2f2a-4724-a218-d4f98e448ead" alt="image" width="50%" height="50%">
 </p>
 
+
+### Parking ticket
+The **`ParkingTicket`** class is one of the central classes of the system. It keeps track of the entrance and exit times of the vehicles, the amount, and the payment status.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/72de33ef-9a08-46f9-97dd-e04ac3a74146" alt="image" width="50%" height="50%">
+</p>
