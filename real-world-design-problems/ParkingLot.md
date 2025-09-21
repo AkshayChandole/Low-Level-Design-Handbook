@@ -269,7 +269,401 @@ The parking lot should have some parking spots specified for electric cars. Thes
 <summary>Java</summary>
 
 ```java
-System.out.println("Hello from Java");
+
+
+```java
+// TicketStatus.java
+public enum TicketStatus { ISSUED, IN_USE, PAID, VALIDATED, CANCELED, REFUNDED }
+
+// AccountStatus.java
+public enum AccountStatus { ACTIVE, CLOSED, CANCELED, BLACKLISTED, NONE }
+
+// PaymentStatus.java
+public enum PaymentStatus { COMPLETED, FAILED, PENDING, UNPAID, REFUNDED }
+
+// Person.java
+public class Person {
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+}
+
+// Address.java
+public class Address {
+    private int zipCode;
+    private String street;
+    private String city;
+    private String state;
+    private String country;
+}
+
+// ParkingSpot.java
+public abstract class ParkingSpot {
+    protected int id;
+    protected boolean isFree = true;
+    protected Vehicle vehicle;
+
+    public ParkingSpot(int id) { this.id = id; }
+    public boolean isFree() { return isFree; }
+    public abstract boolean assignVehicle(Vehicle v);
+    public boolean removeVehicle() {
+        if (!isFree && vehicle != null) {
+            System.out.println("Slot " + id + " freed (was " + vehicle.getLicenseNo() + ")");
+            vehicle = null; isFree = true;
+            return true;
+        }
+        return false;
+    }
+    public int getId() { return id; }
+}
+
+// Handicapped.java
+public class Handicapped extends ParkingSpot {
+    public Handicapped(int id) { super(id); }
+    public boolean assignVehicle(Vehicle v) {
+        if (isFree) {
+            System.out.println("Allocated Handicapped slot " + id + " to " + v.getLicenseNo());
+            this.vehicle = v; isFree = false; return true;
+        }
+        return false;
+    }
+}
+
+// Compact.java
+public class Compact extends ParkingSpot {
+    public Compact(int id) { super(id); }
+    public boolean assignVehicle(Vehicle v) {
+        if (isFree) {
+            System.out.println("Allocated Compact slot " + id + " to " + v.getLicenseNo());
+            this.vehicle = v; isFree = false; return true;
+        }
+        return false;
+    }
+}
+
+// Large.java
+public class Large extends ParkingSpot {
+    public Large(int id) { super(id); }
+    public boolean assignVehicle(Vehicle v) {
+        if (isFree) {
+            System.out.println("Allocated Large slot " + id + " to " + v.getLicenseNo());
+            this.vehicle = v; isFree = false; return true;
+        }
+        return false;
+    }
+}
+
+// MotorcycleSpot.java
+public class MotorcycleSpot extends ParkingSpot {
+    public MotorcycleSpot(int id) { super(id); }
+    public boolean assignVehicle(Vehicle v) {
+        if (isFree) {
+            System.out.println("Allocated Motorcycle slot " + id + " to " + v.getLicenseNo());
+            this.vehicle = v; isFree = false; return true;
+        }
+        return false;
+    }
+}
+
+// Vehicle.java
+public abstract class Vehicle {
+    private String licenseNo;
+    private ParkingTicket ticket;
+    public Vehicle(String lic) { this.licenseNo = lic; }
+    public String getLicenseNo() { return licenseNo; }
+    public void assignTicket(ParkingTicket t) { this.ticket = t; }
+    public ParkingTicket getTicket() { return ticket; }
+}
+
+// Car.java
+public class Car extends Vehicle { public Car(String lic){super(lic);} }
+
+// Van.java
+public class Van extends Vehicle { public Van(String lic){super(lic);} }
+
+// Truck.java
+public class Truck extends Vehicle { public Truck(String lic){super(lic);} }
+
+// Motorcycle.java
+public class Motorcycle extends Vehicle { public Motorcycle(String lic){super(lic);} }
+
+// Account.java
+public abstract class Account {
+    private String userName;
+    private String password;
+    private Person person;
+    private AccountStatus status;
+    public abstract boolean resetPassword();
+}
+
+// Admin.java
+public class Admin extends Account {
+    public boolean addParkingSpot(ParkingSpot spot) { return true; }
+    public boolean addDisplayBoard(DisplayBoard board) { return true; }
+    public boolean addEntrance(Entrance entrance) { return true; }
+    public boolean addExit(Exit exit) { return true; }
+    public boolean resetPassword() { return true; }
+}
+
+// DisplayBoard.java
+import java.util.*;
+
+public class DisplayBoard {
+    private int id;
+    private Map<String, Integer> freeCount = new HashMap<>();
+    public DisplayBoard(int id) { this.id = id; }
+    public void update(Collection<ParkingSpot> spots) {
+        freeCount.clear();
+        for (ParkingSpot s : spots) {
+            if (s.isFree()) {
+                String type = s.getClass().getSimpleName();
+                freeCount.put(type, freeCount.getOrDefault(type, 0) + 1);
+            }
+        }
+    }
+    public void showFreeSlot() {
+        System.out.println("\nFree slots by type:");
+        System.out.printf("%-15s %s%n", "Type", "Count");
+        for (String type : freeCount.keySet())
+            System.out.printf("%-15s %d%n", type, freeCount.get(type));
+    }
+}
+
+// ParkingRate.java
+public class ParkingRate {
+    public double calculate(double hours, Vehicle v, ParkingSpot s) {
+        int hrs = (int)Math.ceil(hours);
+        double fee = 0;
+        if (hrs >= 1) fee += 4;
+        if (hrs >= 2) fee += 3.5;
+        if (hrs >= 3) fee += 3.5;
+        if (hrs > 3) fee += (hrs - 3) * 2.5;
+        return fee;
+    }
+}
+
+// Entrance.java
+public class Entrance {
+    private int id;
+    public Entrance(int id) { this.id = id; }
+    public ParkingTicket getTicket(Vehicle v) {
+        return ParkingLot.getInstance().parkVehicle(v);
+    }
+}
+
+// Exit.java
+import java.util.*;
+
+public class Exit {
+    private int id;
+    public Exit(int id) { this.id = id; }
+    public void validateTicket(ParkingTicket t) {
+        Date now = new Date();
+        t.setExitTime(now);
+        double hrs = (now.getTime() - t.getEntryTime().getTime()) / 3600000.0;
+        double fee = ParkingLot.getInstance().rate.calculate(hrs, t.getVehicle(), ParkingLot.getInstance().getSpot(t.getSlotNo()));
+        t.setAmount(fee);
+        System.out.printf("Ticket %d | Parked: %.2f hrs | Fee: $%.2f\n", t.getTicketNo(), hrs, fee);
+        Payment p = (fee > 10) ? new CreditCard(fee) : new Cash(fee);
+        p.initiateTransaction();
+        ParkingLot.getInstance().freeSlot(t.getSlotNo());
+        t.setStatus(TicketStatus.PAID);
+    }
+}
+
+// ParkingTicket.java
+import java.util.*;
+
+public class ParkingTicket {
+    private static int ticketSeed = 1000;
+    private int ticketNo;
+    private int slotNo;
+    private Vehicle vehicle;
+    private Date entryTime, exitTime;
+    private double amount;
+    private TicketStatus status;
+    private Payment payment;
+    public ParkingTicket(int slotNo, Vehicle v) {
+        this.ticketNo = ticketSeed++;
+        this.slotNo = slotNo;
+        this.vehicle = v;
+        this.entryTime = new Date();
+        this.status = TicketStatus.ISSUED;
+        v.assignTicket(this);
+        System.out.println("Ticket issued: " + ticketNo);
+    }
+
+    public int getTicketNo() { return ticketNo; }
+    public int getSlotNo() { return slotNo; }
+    public Vehicle getVehicle() { return vehicle; }
+    public Date getEntryTime() { return entryTime; }
+    public Date getExitTime() { return exitTime; }
+    public void setExitTime(Date dt) { this.exitTime = dt; }
+    public void setAmount(double amt) { this.amount = amt; }
+    public double getAmount() { return amount; }
+    public void setStatus(TicketStatus s) { this.status = s; }
+    public TicketStatus getStatus() { return status; }
+}
+
+// Payment.java
+import java.util.*;
+
+public abstract class Payment {
+    protected double amount;
+    protected PaymentStatus status;
+    protected Date timestamp;
+    public Payment(double amt) { this.amount = amt; this.status = PaymentStatus.PENDING; this.timestamp = new Date(); }
+    public abstract boolean initiateTransaction();
+}
+
+// Cash.java
+public class Cash extends Payment {
+    public Cash(double amt) { super(amt); }
+    public boolean initiateTransaction() {
+        status = PaymentStatus.COMPLETED;
+        System.out.println("Cash payment of $" + amount + " completed.");
+        return true;
+    }
+}
+
+// CreditCard.java
+public class CreditCard extends Payment {
+    public CreditCard(double amt) { super(amt); }
+    public boolean initiateTransaction() {
+        status = PaymentStatus.COMPLETED;
+        System.out.println("Credit card payment of $" + amount + " completed.");
+        return true;
+    }
+}
+
+// ParkingLot.java
+import java.util.*;
+
+public class ParkingLot {
+    private static ParkingLot instance = null;
+    public ParkingRate rate = new ParkingRate();
+    private Map<Integer, ParkingSpot> spots = new LinkedHashMap<>();
+    private Map<Integer, ParkingTicket> tickets = new HashMap<>();
+    private List<DisplayBoard> boards = new ArrayList<>();
+
+    private ParkingLot() {}
+
+    public static ParkingLot getInstance() {
+        if (instance == null) instance = new ParkingLot();
+        return instance;
+    }
+
+    public void addSpot(ParkingSpot s) { spots.put(s.getId(), s); }
+    public void addDisplayBoard(DisplayBoard b) { boards.add(b); }
+    public ParkingSpot getSpot(int id) { return spots.get(id); }
+    public void freeSlot(int id) {
+        ParkingSpot s = spots.get(id);
+        if (s != null) s.removeVehicle();
+    }
+
+    public Collection<ParkingSpot> getAllSpots() { return spots.values(); }
+    public ParkingTicket parkVehicle(Vehicle v) {
+        for (ParkingSpot s : spots.values()) {
+            if (s.isFree() && canFit(v, s)) {
+                s.assignVehicle(v);
+                ParkingTicket t = new ParkingTicket(s.getId(), v);
+                tickets.put(t.getTicketNo(), t);
+                return t;
+            }
+        }
+        System.out.println("Sorry, parking lot is full. New cars cannot be parked.");
+        return null;
+    }
+
+    private boolean canFit(Vehicle v, ParkingSpot s) {
+        if (v instanceof Motorcycle && s instanceof MotorcycleSpot) return true;
+        if ((v instanceof Truck || v instanceof Van) && s instanceof Large) return true;
+        if (v instanceof Car && (s instanceof Compact || s instanceof Handicapped)) return true;
+        return false;
+    }
+}
+
+// Driver.java
+public class Driver {
+    public static void main(String[] args) throws InterruptedException {
+        // -------------- SYSTEM INITIALIZATION --------------
+        System.out.println("\n====================== PARKING LOT SYSTEM DEMO ======================\n");
+
+        ParkingLot lot = ParkingLot.getInstance();
+        lot.addSpot(new Handicapped(1));
+        lot.addSpot(new Compact(2));
+        lot.addSpot(new Large(3));
+        lot.addSpot(new MotorcycleSpot(4));
+
+        DisplayBoard board = new DisplayBoard(1);
+        lot.addDisplayBoard(board);
+
+        Entrance entrance = new Entrance(1);
+        Exit exit = new Exit(1);
+
+        // ----------------- SCENARIO 1: CUSTOMER ENTERS, PARKS -----------------
+        System.out.println("\n→→→ SCENARIO 1: Customer enters and parks a car\n");
+
+        Vehicle car = new Car("KA-01-HH-1234");
+        System.out.println("-> Car " + car.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket1 = entrance.getTicket(car);
+
+        System.out.println("-> Updating display board after parking:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // ----------------- SCENARIO 2: CUSTOMER EXITS AND PAYS -----------------
+        System.out.println("\n→→→ SCENARIO 2: Customer exits and pays\n");
+
+        System.out.println("-> Car " + car.getLicenseNo() + " proceeds to exit panel");
+        Thread.sleep(1500); // Simulate parking duration (1.5 sec)
+        exit.validateTicket(ticket1);
+
+        System.out.println("-> Updating display board after exit:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // --------- SCENARIO 3: FILLING LOT AND REJECTING ENTRY IF FULL ---------
+        System.out.println("\n→→→ SCENARIO 3: Multiple customers attempt to enter; lot may become full\n");
+
+        // Vehicles arriving
+        Vehicle van = new Van("KA-01-HH-9999");
+        Vehicle motorcycle = new Motorcycle("KA-02-XX-3333");
+        Vehicle truck = new Truck("KA-04-AA-9998");
+        Vehicle car2 = new Car("DL-09-YY-1234");
+
+        System.out.println("-> Van " + van.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket2 = entrance.getTicket(van);
+
+        System.out.println("-> Motorcycle " + motorcycle.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket3 = entrance.getTicket(motorcycle);
+
+        System.out.println("-> Truck " + truck.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket4 = entrance.getTicket(truck);
+
+        System.out.println("-> Car " + car2.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket5 = entrance.getTicket(car2);
+
+        System.out.println("-> Updating display board after several parkings:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // Try to park another car (lot may now be full)
+        Vehicle car3 = new Car("UP-01-CC-1001");
+        System.out.println("-> Car " + car3.getLicenseNo() + " attempts to park (should be denied if lot is full):");
+        ParkingTicket ticket6 = entrance.getTicket(car3);
+
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        System.out.println("\n====================== END OF DEMONSTRATION ======================\n");
+    }
+}
+
+
+```
+
 ```
 </details>
 
