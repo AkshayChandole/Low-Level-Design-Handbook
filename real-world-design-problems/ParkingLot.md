@@ -134,6 +134,7 @@ The ```Exit``` class is responsible for validating the parking ticket’s paymen
 
 ### Parking ticket
 The **`ParkingTicket`** class is one of the central classes of the system. It keeps track of the entrance and exit times of the vehicles, the amount, and the payment status.
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/72de33ef-9a08-46f9-97dd-e04ac3a74146" alt="image" width="50%" height="50%">
+  <img src="https://github.com/user-attachments/assets/72de33ef-9a08-46f9-97dd-e04ac3a74146" alt="image" width="25%" height="25%">
 </p>
