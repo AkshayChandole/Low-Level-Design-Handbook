@@ -266,12 +266,10 @@ The parking lot should have some parking spots specified for electric cars. Thes
 ## [Code](#code)
 
 <details>
-<summary>Java</summary>
+<summary><strong>JAVA</strong></summary>
 
 ```java
 
-
-```java
 // TicketStatus.java
 public enum TicketStatus { ISSUED, IN_USE, PAID, VALIDATED, CANCELED, REFUNDED }
 
