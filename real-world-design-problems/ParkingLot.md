@@ -182,3 +182,31 @@ The **`Person`** class is used to store information related to a person like a n
 
 
 
+
+## [Relationship between the classes](relationship-between-the-classes)
+
+### Association
+Association represents a loose relationship between two classes, where one class refers to another to use its functionality or store a reference. Associations typically do not imply ownership, and the associated object may exist independently of the referring object.
+
+In the parking lot system, association relationships include:
+- Each **`ParkingSpot`** is associated with a **`Vehicle`** object. When a vehicle is parked, the spot keeps a reference to the vehicle. This allows the parking spot to track which vehicle is currently occupying it. However, the vehicle does not directly reference its spot.
+- A **`Vehicle`** holds an association to its current **`ParkingTicket`**. When a vehicle enters the lot, it receives a ticket, and this association allows for tracking and processing of parking sessions.
+- The **`ParkingTicket`** class maintains references to the **`Entrance`**, **`Exit`**, and **`Vehicle`** involved in the parking session, allowing the system to trace the entry and exit points and the vehicle details for any given ticket.
+- The **`DisplayBoard`** and **`ParkingSpot`** should have an association relationship. The DisplayBoard is responsible for showing the availability/status of multiple ParkingSpot objects—it maintains a reference (typically a list or map) to all spots it displays.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/52e2fd82-8731-4989-8393-36e08ad8c0bb" alt="image" width="60%" height="60%">
+</p>
+
+### Composition
+Composition is a strong form of association that implies ownership and a whole-part relationship. When a composite object is destroyed, its components are destroyed as well. In other words, the composed objects do not exist independently of their parent.
+
+In our parking lot system, composition relationships are seen in:
+- The **`ParkingLot`** class is composed of its key components, including all instances of **`Entrance`**, **`Exit`**, **`ParkingSpot`**, **`DisplayBoard`**, **`ParkingRate`**, and all current **`ParkingTicket`** objects. The parking lot is responsible for the creation, management, and destruction of these components, which do not exist outside the context of the parking lot.
+- Each **`ParkingTicket`** is composed of a **`Payment`** object. The payment is created and managed by the ticket, representing the financial transaction for that specific parking session. The payment does not exist independently outside the ticket.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1c03d794-5d5d-4ac1-b4b0-172ad1b7ecd6" alt="image" width="60%" height="60%">
+</p>
+
+
+
