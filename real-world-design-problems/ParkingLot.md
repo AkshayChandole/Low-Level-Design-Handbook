@@ -216,6 +216,25 @@ In the parking lot system, inheritance relationships are structured as follows:
 - Similarly, the abstract **`ParkingSpot`** class defines the core properties and behaviors for a parking spot. The specific spot types — **`AccessibleSpot`**, **`CompactSpot`**, **`LargeSpot`**, and **`MotorcycleSpot`** — are implemented as subclasses, each potentially providing specialized logic for assigning vehicles.
 - The **`Payment`** abstract class provides the basic structure for payment operations, while **`Cash`** and **`CreditCard`** classes implement the details for each payment method.
 
+---
 
+## [Class diagram of the parking lot system](#class-diagram-of-the-parking-lot-system)
+
+In this section, we outline the multiplicity (cardinality) relationships between the main classes in our parking lot system.  
+
+| **Source**      | **Target**      | **Multiplicity** | **Reason**                                                                                  |
+|------------------|-----------------|------------------|----------------------------------------------------------------------------------------------|
+| ParkingLot       | Entrance        | 1 -- 1..*        | A parking lot must have at least one entrance, and can have multiple for efficient flow.     |
+| ParkingLot       | Exit            | 1 -- 1..*        | A parking lot must have at least one exit, and can have multiple for smooth operation.       |
+| ParkingLot       | ParkingSpot     | 1 -- 1..*        | Every parking lot manages multiple parking spots.                                           |
+| ParkingLot       | ParkingTicket   | 1 -- 0..*        | The lot manages zero or more tickets at any given time.                                     |
+| ParkingLot       | DisplayBoard    | 1 -- 0..*        | There may be zero or more display boards (e.g., per floor or entrance).                     |
+| ParkingLot       | ParkingRate     | 1 -- 1           | One parking rate policy per parking lot (single rate object for whole lot).                 |
+| ParkingSpot      | Vehicle         | 0..1 -- 1        | Each parking spot can have zero or one vehicle at a time (may be empty or occupied).        |
+| Vehicle          | ParkingTicket   | 1 -- 1           | A vehicle can have at most one ticket (only when parked).                                   |
+| ParkingTicket    | Payment         | 1 -- 1           | Each ticket is paid for with one payment transaction.                                       |
+| DisplayBoard     | ParkingSpot     | 1 -- 0..*        | Each display board shows status of zero or more parking spots.                              |
+
+<img width="1881" height="890" alt="image" src="https://github.com/user-attachments/assets/52112b62-20a8-404a-9ba0-7ffe69bb27f5" />
 
 
