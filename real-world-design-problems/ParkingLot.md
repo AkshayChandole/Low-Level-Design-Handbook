@@ -138,3 +138,16 @@ The **`ParkingTicket`** class is one of the central classes of the system. It ke
 <p align="center">
   <img src="https://github.com/user-attachments/assets/72de33ef-9a08-46f9-97dd-e04ac3a74146" alt="image" width="25%" height="25%">
 </p>
+
+### Payment
+The **`Payment`** class will be an abstract class and will have two child classes, **`card`** and **`cash`**, since these are two payment methods of the parking lot system.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e9d8c54f-94fa-4020-ae7f-849d9e941c96" alt="image" width="25%" height="25%">
+</p>
+
+### Parking rate
+The **`ParkingRate`** class is responsible for calculating the final payment based on the time spent in the parking lot.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dfea7832-1a21-45a2-b957-9091fb82b022" alt="image" width="30%" height="30%">
+</p>
