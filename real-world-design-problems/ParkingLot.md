@@ -158,3 +158,12 @@ Now, we will discuss the design of the whole **`ParkingLot`** system class. This
   <img src="https://github.com/user-attachments/assets/dfadbaa6-f71f-45c1-b84d-441bfe32812c" alt="image" width="25%" height="25%">
 </p>
 
+### The enumerations and custom data types
+The following provides an overview of the enumerations and custom data types used in this problem:
+- **`PaymentStatus`**: We need to create an enumeration to keep track of the payment status of the parking ticket, whether it is paid, unpaid, canceled, refunded, and so on.
+- **`AccountStatus`**: We need to create an enumeration to keep track of the status of the account, whether it is active, canceled, closed, and so on.
+- **`TicketStatus`**: We need to create an enumeration to keep track of the current status of a parking ticket, whether it is issued, in use, paid, validated, canceled, refunded, and so on.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/54cdf87d-c231-4e02-ab6b-3cb90909904e" alt="image" width="25%" height="25%">
+</p>
+
