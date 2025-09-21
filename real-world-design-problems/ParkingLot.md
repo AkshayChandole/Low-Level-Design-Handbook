@@ -149,5 +149,12 @@ The **`Payment`** class will be an abstract class and will have two child classe
 ### Parking rate
 The **`ParkingRate`** class is responsible for calculating the final payment based on the time spent in the parking lot.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dfea7832-1a21-45a2-b957-9091fb82b022" alt="image" width="30%" height="30%">
+  <img src="https://github.com/user-attachments/assets/dfea7832-1a21-45a2-b957-9091fb82b022" alt="image" width="15%" height="15%">
 </p>
+
+### Parking lot
+Now, we will discuss the design of the whole **`ParkingLot`** system class. This parking lot system is composed of smaller objects we have already designed, like entrance/exit, parking spots, parking rates, etc.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dfadbaa6-f71f-45c1-b84d-441bfe32812c" alt="image" width="25%" height="25%">
+</p>
+
