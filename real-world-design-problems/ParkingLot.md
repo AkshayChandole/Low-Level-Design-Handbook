@@ -180,7 +180,7 @@ The **`Person`** class is used to store information related to a person like a n
 </p>
 
 
-
+---
 
 
 ## [Relationship between the classes](relationship-between-the-classes)
@@ -207,6 +207,15 @@ In our parking lot system, composition relationships are seen in:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1c03d794-5d5d-4ac1-b4b0-172ad1b7ecd6" alt="image" width="60%" height="60%">
 </p>
+
+### Inheritance
+Inheritance, also known as generalization, is a relationship where one class (the child or subclass) inherits behavior and attributes from another class (the parent or superclass). This allows for code reuse and logical grouping of shared functionality, while enabling polymorphic behavior.
+
+In the parking lot system, inheritance relationships are structured as follows:
+- The abstract **`Vehicle`** class serves as the general blueprint for different types of vehicles, with **`Car`**, **`Truck`**, **`Van`**, and **`Motorcycle`** as its concrete subclasses. Each subclass can extend or override the behavior defined in Vehicle.
+- Similarly, the abstract **`ParkingSpot`** class defines the core properties and behaviors for a parking spot. The specific spot types — **`AccessibleSpot`**, **`CompactSpot`**, **`LargeSpot`**, and **`MotorcycleSpot`** — are implemented as subclasses, each potentially providing specialized logic for assigning vehicles.
+- The **`Payment`** abstract class provides the basic structure for payment operations, while **`Cash`** and **`CreditCard`** classes implement the details for each payment method.
+
 
 
 
