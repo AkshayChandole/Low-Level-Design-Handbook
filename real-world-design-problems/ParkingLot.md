@@ -237,4 +237,12 @@ In this section, we outline the multiplicity (cardinality) relationships between
 
 <img width="1881" height="890" alt="image" src="https://github.com/user-attachments/assets/52112b62-20a8-404a-9ba0-7ffe69bb27f5" />
 
+---
+
+## [Design pattern](#design-pattern)
+Our parking lot system employs several standard object-oriented design patterns to enhance its flexibility and maintainability:
+- **Singleton pattern:** The ParkingLot class is implemented as a Singleton. This ensures that only one instance of the parking lot system exists throughout the application's lifecycle, centralizing the management of all lot resources.
+- **Factory and Abstract Factory patterns:** The creation of different types of parking spots, vehicles, or payments can leverage the Factory and Abstract Factory patterns. These patterns make it easy to introduce new types of spots, vehicles, or payment methods in the future, simply by extending the factory logic, without changing the core business logic or system structure.
+
+---
 
