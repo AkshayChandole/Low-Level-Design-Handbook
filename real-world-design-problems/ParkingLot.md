@@ -1472,8 +1472,587 @@ int main() {
 <summary>Javascript</summary>
 
 ```javascript
-console.log("Hello from JavaScript");
+// PaymentStatus.js
+const PaymentStatus = Object.freeze({
+    COMPLETED: "COMPLETED",
+    FAILED: "FAILED",
+    PENDING: "PENDING",
+    UNPAID: "UNPAID",
+    REFUNDED: "REFUNDED"
+});
+export { PaymentStatus };
 ```
+
+```javascript
+// AccountStatus.js
+const AccountStatus = Object.freeze({
+    ACTIVE: "ACTIVE",
+    CLOSED: "CLOSED",
+    CANCELED: "CANCELED",
+    BLACKLISTED: "BLACKLISTED",
+    NONE: "NONE"
+});
+export { AccountStatus };
+```
+
+```javascript
+// TicketStatus.js
+const TicketStatus = Object.freeze({
+    ISSUED: "ISSUED",
+    IN_USE: "IN_USE",
+    PAID: "PAID",
+    VALIDATED: "VALIDATED",
+    CANCELED: "CANCELED",
+    REFUNDED: "REFUNDED"
+});
+export { TicketStatus };
+```
+
+```javascript
+// Person.js
+class Person {
+    constructor(name, address, phone, email) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+}
+export { Person };
+```
+
+```javascript
+// Address.js
+class Address {
+    constructor(zipCode, street, city, state, country) {
+        this.zipCode = zipCode;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+    }
+}
+export { Address };
+```
+
+```javascript
+// ParkingSpot.js
+import { Vehicle } from './Vehicle.js';
+
+class ParkingSpot {
+    constructor(id) {
+        this.id = id;
+        this.isFree = true;
+        this.vehicle = null;
+    }
+    isSpotFree() { return this.isFree; }
+    assignVehicle(vehicle) { throw new Error("Not implemented"); }
+    removeVehicle() {
+        if (!this.isFree && this.vehicle) {
+            console.log(`Slot ${this.id} freed (was ${this.vehicle.licenseNo})`);
+            this.vehicle = null;
+            this.isFree = true;
+            return true;
+        }
+        return false;
+    }
+    getId() { return this.id; }
+}
+export { ParkingSpot };
+```
+
+```javascript
+// Handicapped.js
+import { ParkingSpot } from './ParkingSpot.js';
+import { Vehicle } from './Vehicle.js';
+
+class Handicapped extends ParkingSpot {
+    assignVehicle(vehicle) {
+        if (this.isFree) {
+            console.log(`Allocated Handicapped slot ${this.id} to ${vehicle.licenseNo}`);
+            this.vehicle = vehicle;
+            this.isFree = false;
+            return true;
+        }
+        return false;
+    }.js
+}
+export { Handicapped };
+```
+
+```javascript
+// Compact
+import { ParkingSpot } from './ParkingSpot.js';
+import { Vehicle } from './Vehicle.js';
+
+class Compact extends ParkingSpot {
+    assignVehicle(vehicle) {
+        if (this.isFree) {
+            console.log(`Allocated Compact slot ${this.id} to ${vehicle.licenseNo}`);
+            this.vehicle = vehicle;
+            this.isFree = false;
+            return true;
+        }
+        return false;
+    }
+}
+export { Compact };
+```
+
+```javascript
+// Large.js
+import { ParkingSpot } from './ParkingSpot.js';
+import { Vehicle } from './Vehicle.js';
+
+class Large extends ParkingSpot {
+    assignVehicle(vehicle) {
+        if (this.isFree) {
+            console.log(`Allocated Large slot ${this.id} to ${vehicle.licenseNo}`);
+            this.vehicle = vehicle;
+            this.isFree = false;
+            return true;
+        }
+        return false;
+    }
+}
+export { Large };
+```
+
+```javascript
+// MotorcycleSpot.js
+import { ParkingSpot } from './ParkingSpot.js';
+import { Vehicle } from './Vehicle.js';
+
+class MotorcycleSpot extends ParkingSpot {
+    assignVehicle(vehicle) {
+        if (this.isFree) {
+            console.log(`Allocated Motorcycle slot ${this.id} to ${vehicle.licenseNo}`);
+            this.vehicle = vehicle;
+            this.isFree = false;
+            return true;
+        }
+        return false;
+    }
+}
+export { MotorcycleSpot };
+```
+
+```javascript
+// Vehicle.js
+import { ParkingTicket } from './ParkingTicket.js';
+
+class Vehicle {
+    constructor(licenseNo) {
+        this.licenseNo = licenseNo;
+        this.ticket = null;
+    }
+    getLicenseNo() { return this.licenseNo; }
+    assignTicket(ticket) { this.ticket = ticket; }
+    getTicket() { return this.ticket; }
+}
+export { Vehicle };
+```
+
+```javascript
+// Car.js
+import { Vehicle } from './Vehicle.js';
+
+class Car extends Vehicle {
+    constructor(licenseNo) { super(licenseNo); }
+}
+export { Car };
+```
+
+```javascript
+// Van.js
+import { Vehicle } from './Vehicle.js';
+
+class Van extends Vehicle {
+    constructor(licenseNo) { super(licenseNo); }
+}
+export { Van };
+```
+
+```javascript
+// Truck.js
+import { Vehicle } from './Vehicle.js';
+
+class Truck extends Vehicle {
+    constructor(licenseNo) { super(licenseNo); }
+}
+export { Truck };
+```
+
+
+```javascript
+// Motorcycle.js
+import { Vehicle } from './Vehicle.js';
+
+class Motorcycle extends Vehicle {
+    constructor(licenseNo) { super(licenseNo); }
+}
+export { Motorcycle };
+```
+
+
+```javascript
+// Account.js
+import { Person } from './Person.js';
+
+class Account {
+    constructor(userName, password, person, status) {
+        if (this.constructor === Account) throw new Error("Abstract class!");
+        this.userName = userName;
+        this.password = password;
+        this.person = person;
+        this.status = status;
+    }
+    resetPassword() { throw new Error("Not implemented"); }
+}
+export { Account };
+```
+
+
+```javascript
+// Admin.js
+import { Account } from './Account.js';
+
+class Admin extends Account {
+    addParkingSpot(spot) { return true; }
+    addDisplayBoard(board) { return true; }
+    addEntrance(entrance) { return true; }
+    addExit(exitObj) { return true; }
+    resetPassword() { return true; }
+}
+export { Admin };
+```
+
+```javascript
+// DisplayBoard.js
+import { ParkingSpot } from './ParkingSpot.js';
+
+class DisplayBoard {
+    constructor(id) {
+        this.id = id;
+        this.freeCount = {};
+    }
+    update(spots) {
+        this.freeCount = {};
+        for (const s of spots) {
+            if (s.isSpotFree()) {
+                let type = s.constructor.name;
+                this.freeCount[type] = (this.freeCount[type] || 0) + 1;
+            }
+        }
+    }
+    showFreeSlot() {
+        console.log("\nFree slots by type:");
+        console.log("Type            Count");
+        for (const [type, count] of Object.entries(this.freeCount)) {
+            console.log(type.padEnd(15), count);
+        }
+    }
+}
+export { DisplayBoard };
+```
+
+
+```javascript
+// ParkingRate.js
+import { Vehicle } from './Vehicle.js';
+import { ParkingSpot } from './ParkingSpot.js';
+
+class ParkingRate {
+    calculate(hours, vehicle, spot) {
+        let hrs = Math.ceil(hours);
+        let fee = 0;
+        if (hrs >= 1) fee += 4;
+        if (hrs >= 2) fee += 3.5;
+        if (hrs >= 3) fee += 3.5;
+        if (hrs > 3) fee += (hrs - 3) * 2.5;
+        return fee;
+    }
+}
+export { ParkingRate };
+```
+
+
+```javascript
+// Entrance.js
+import { ParkingLot } from './ParkingLot.js';
+import { Vehicle } from './Vehicle.js';
+import { ParkingTicket } from './ParkingTicket.js';
+
+class Entrance {
+    constructor(id) { this.id = id; }
+    getTicket(vehicle) {
+        return ParkingLot.getInstance().parkVehicle(vehicle);
+    }
+}
+export { Entrance };
+```
+
+
+```javascript
+// Exit.js
+import { ParkingTicket } from './ParkingTicket.js';
+import { ParkingLot } from './ParkingLot.js';
+import { Payment } from './Payment.js';
+import { Cash } from './Cash.js';
+import { CreditCard } from './CreditCard.js';
+import { TicketStatus } from './TicketStatus.js';
+
+class Exit {
+    constructor(id) { this.id = id; }
+    validateTicket(ticket) {
+        const now = new Date();
+        ticket.setExitTime(now);
+        const hrs = (now - ticket.getEntryTime()) / 3600000.0;
+        const lot = ParkingLot.getInstance();
+        const fee = lot.rate.calculate(hrs, ticket.getVehicle(), lot.getSpot(ticket.getSlotNo()));
+        ticket.setAmount(fee);
+        console.log(`Ticket ${ticket.getTicketNo()} | Parked: ${hrs.toFixed(2)} hrs | Fee: $${fee.toFixed(2)}`);
+        let p = (fee > 10) ? new CreditCard(fee) : new Cash(fee);
+        p.initiateTransaction();
+        lot.freeSlot(ticket.getSlotNo());
+        ticket.setStatus(TicketStatus.PAID);
+    }
+}
+export { Exit };
+```
+
+```javascript
+// ParkingTicket.js
+import { TicketStatus } from './TicketStatus.js';
+import { Vehicle } from './Vehicle.js';
+import { Payment } from './Payment.js';
+
+let ticketSeed = 1000;
+class ParkingTicket {
+    constructor(slotNo, vehicle) {
+        this.ticketNo = ticketSeed++;
+        this.slotNo = slotNo;
+        this.vehicle = vehicle;
+        this.entryTime = new Date();
+        this.status = TicketStatus.ISSUED;
+        this.amount = 0;
+        this.payment = null;
+        vehicle.assignTicket(this);
+        console.log("Ticket issued: " + this.ticketNo);
+    }
+    getTicketNo() { return this.ticketNo; }
+    getSlotNo() { return this.slotNo; }
+    getVehicle() { return this.vehicle; }
+    getEntryTime() { return this.entryTime; }
+    getExitTime() { return this.exitTime; }
+    setExitTime(dt) { this.exitTime = dt; }
+    setAmount(amt) { this.amount = amt; }
+    getAmount() { return this.amount; }
+    setStatus(s) { this.status = s; }
+    getStatus() { return this.status; }
+}
+export { ParkingTicket };
+```
+
+```javascript
+// Payment.js
+import { PaymentStatus } from './PaymentStatus.js';
+
+class Payment {
+    constructor(amount) {
+        if (this.constructor === Payment) throw new Error("Abstract class!");
+        this.amount = amount;
+        this.status = PaymentStatus.PENDING;
+        this.timestamp = new Date();
+    }
+    initiateTransaction() { throw new Error("Not implemented"); }
+}
+export { Payment };
+```
+
+```javascript
+// Cash.js
+import { Payment } from './Payment.js';
+import { PaymentStatus } from './PaymentStatus.js';
+
+class Cash extends Payment {
+    constructor(amount) { super(amount); }
+    initiateTransaction() {
+        this.status = PaymentStatus.COMPLETED;
+        console.log(`Cash payment of $${this.amount} completed.`);
+        return true;
+    }
+}
+export { Cash };
+```
+
+```javascript
+// CreditCard.js
+import { Payment } from './Payment.js';
+import { PaymentStatus } from './PaymentStatus.js';
+
+class CreditCard extends Payment {
+    constructor(amount) { super(amount); }
+    initiateTransaction() {
+        this.status = PaymentStatus.COMPLETED;
+        console.log(`Credit card payment of $${this.amount} completed.`);
+        return true;
+    }
+}
+export { CreditCard };
+```
+
+```javascript
+// ParkingLot.js
+import { ParkingRate } from './ParkingRate.js';
+import { DisplayBoard } from './DisplayBoard.js';
+import { ParkingSpot } from './ParkingSpot.js';
+import { ParkingTicket } from './ParkingTicket.js';
+import { Car } from './Car.js';
+import { Van } from './Van.js';
+import { Truck } from './Truck.js';
+import { Motorcycle } from './Motorcycle.js';
+import { Compact } from './Compact.js';
+import { Large } from './Large.js';
+import { Handicapped } from './Handicapped.js';
+import { MotorcycleSpot } from './MotorcycleSpot.js';
+
+class ParkingLot {
+    constructor() {
+        if (ParkingLot._instance) throw new Error("Singleton! Use ParkingLot.getInstance()");
+        this.rate = new ParkingRate();
+        this.spots = new Map();
+        this.tickets = new Map();
+        this.boards = [];
+    }
+    static getInstance() {
+        if (!ParkingLot._instance) ParkingLot._instance = new ParkingLot();
+        return ParkingLot._instance;
+    }
+    addSpot(s) { this.spots.set(s.getId(), s); }
+    addDisplayBoard(b) { this.boards.push(b); }
+    getSpot(id) { return this.spots.get(id); }
+    freeSlot(id) {
+        const s = this.getSpot(id);
+        if (s) s.removeVehicle();
+    }
+    getAllSpots() { return Array.from(this.spots.values()); }
+    parkVehicle(v) {
+        for (let s of this.spots.values()) {
+            if (s.isSpotFree() && ParkingLot.canFit(v, s)) {
+                s.assignVehicle(v);
+                let t = new ParkingTicket(s.getId(), v);
+                this.tickets.set(t.getTicketNo(), t);
+                return t;
+            }
+        }
+        console.log("Sorry, parking lot is full. New cars cannot be parked.");
+        return null;
+    }
+    static canFit(v, s) {
+        if (v instanceof Motorcycle && s instanceof MotorcycleSpot) return true;
+        if ((v instanceof Truck || v instanceof Van) && s instanceof Large) return true;
+        if (v instanceof Car && (s instanceof Compact || s instanceof Handicapped)) return true;
+        return false;
+    }
+}
+ParkingLot._instance = null;
+
+export { ParkingLot };
+```
+
+```javascript
+// Driver.js
+import { Handicapped } from './Handicapped.js';
+import { Compact } from './Compact.js';
+import { Large } from './Large.js';
+import { MotorcycleSpot } from './MotorcycleSpot.js';
+import { DisplayBoard } from './DisplayBoard.js';
+import { Entrance } from './Entrance.js';
+import { Exit } from './Exit.js';
+import { Car } from './Car.js';
+import { Van } from './Van.js';
+import { Truck } from './Truck.js';
+import { Motorcycle } from './Motorcycle.js';
+import { ParkingLot } from './ParkingLot.js';
+
+function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+async function main() {
+    console.log("\n====================== PARKING LOT SYSTEM DEMO ======================\n");
+
+    const lot = ParkingLot.getInstance();
+    lot.addSpot(new Handicapped(1));
+    lot.addSpot(new Compact(2));
+    lot.addSpot(new Large(3));
+    lot.addSpot(new MotorcycleSpot(4));
+
+    const board = new DisplayBoard(1);
+    lot.addDisplayBoard(board);
+
+    const entrance = new Entrance(1);
+    const exitPanel = new Exit(1);
+
+    // Scenario 1: Customer enters and parks
+    console.log("\n→→→ SCENARIO 1: Customer enters and parks a car\n");
+    const car = new Car("KA-01-HH-1234");
+    console.log("-> Car " + car.licenseNo + " arrives at entrance");
+    const ticket1 = entrance.getTicket(car);
+
+    console.log("-> Updating display board after parking:");
+    board.update(lot.getAllSpots());
+    board.showFreeSlot();
+
+    // Scenario 2: Customer exits and pays
+    console.log("\n→→→ SCENARIO 2: Customer exits and pays\n");
+    console.log("-> Car " + car.licenseNo + " proceeds to exit panel");
+    await sleep(1500); // Simulate parking duration (1.5 sec)
+    exitPanel.validateTicket(ticket1);
+
+    console.log("-> Updating display board after exit:");
+    board.update(lot.getAllSpots());
+    board.showFreeSlot();
+
+    // Scenario 3: Filling lot and rejecting entry if full
+    console.log("\n→→→ SCENARIO 3: Multiple customers attempt to enter; lot may become full\n");
+    const van = new Van("KA-01-HH-9999");
+    const motorcycle = new Motorcycle("KA-02-XX-3333");
+    const truck = new Truck("KA-04-AA-9998");
+    const car2 = new Car("DL-09-YY-1234");
+
+    console.log("-> Van " + van.licenseNo + " arrives at entrance");
+    const ticket2 = entrance.getTicket(van);
+
+    console.log("-> Motorcycle " + motorcycle.licenseNo + " arrives at entrance");
+    const ticket3 = entrance.getTicket(motorcycle);
+
+    console.log("-> Truck " + truck.licenseNo + " arrives at entrance");
+    const ticket4 = entrance.getTicket(truck);
+
+    console.log("-> Car " + car2.licenseNo + " arrives at entrance");
+    const ticket5 = entrance.getTicket(car2);
+
+    console.log("-> Updating display board after several parkings:");
+    board.update(lot.getAllSpots());
+    board.showFreeSlot();
+
+    // Try to park another car (lot may now be full)
+    const car3 = new Car("UP-01-CC-1001");
+    console.log("-> Car " + car3.licenseNo + " attempts to park (should be denied if lot is full):");
+    const ticket6 = entrance.getTicket(car3);
+
+    board.update(lot.getAllSpots());
+    board.showFreeSlot();
+
+    console.log("\n====================== END OF DEMONSTRATION ======================\n");
+}
+
+// Only export main for optional use elsewhere
+export { main };
+
+main();
+```
+
 </details>
 
 ---
